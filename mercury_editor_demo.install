@@ -17,9 +17,147 @@ use Drupal\Core\File\FileExists;
 use Drupal\Core\Entity\Entity\EntityViewMode;
 
 /**
+ * Ensures required media types exist before installation.
+ */
+function _mercury_editor_demo_ensure_media_types() {
+  $media_types = [
+    'image' => [
+      'label' => 'Image',
+      'description' => 'Use local images for reusable media.',
+      'source' => 'image',
+      'source_configuration' => [
+        'source_field' => 'field_media_image',
+      ],
+    ],
+    'remote_video' => [
+      'label' => 'Remote video',
+      'description' => 'Use remote videos from YouTube or Vimeo for reusable media.',
+      'source' => 'oembed:video',
+      'source_configuration' => [
+        'source_field' => 'field_media_oembed_video',
+        'thumbnails_directory' => 'public://oembed_thumbnails',
+        'providers' => ['YouTube', 'Vimeo'],
+      ],
+    ],
+  ];
+
+  foreach ($media_types as $type_id => $config) {
+    $media_type = MediaType::load($type_id);
+    if (!$media_type) {
+      \Drupal::logger('mercury_editor_demo')->info('Creating missing media type: @type', ['@type' => $type_id]);
+
+      $media_type = MediaType::create([
+        'id' => $type_id,
+        'label' => $config['label'],
+        'description' => $config['description'],
+        'source' => $config['source'],
+        'source_configuration' => $config['source_configuration'],
+      ]);
+      $media_type->save();
+
+      // Create the source field for the media type
+      if ($type_id === 'image') {
+        _mercury_editor_demo_create_image_field($media_type);
+      }
+      elseif ($type_id === 'remote_video') {
+        _mercury_editor_demo_create_oembed_field($media_type);
+      }
+    }
+  }
+}
+
+/**
+ * Creates the image field for the image media type.
+ */
+function _mercury_editor_demo_create_image_field($media_type) {
+  $field_storage = FieldStorageConfig::loadByName('media', 'field_media_image');
+  if (!$field_storage) {
+    $field_storage = FieldStorageConfig::create([
+      'field_name' => 'field_media_image',
+      'entity_type' => 'media',
+      'type' => 'image',
+      'settings' => [
+        'target_type' => 'file',
+        'display_field' => FALSE,
+        'display_default' => FALSE,
+        'uri_scheme' => 'public',
+        'default_image' => [
+          'uuid' => '',
+          'alt' => '',
+          'title' => '',
+          'width' => NULL,
+          'height' => NULL,
+        ],
+      ],
+    ]);
+    $field_storage->save();
+  }
+
+  $field_config = FieldConfig::loadByName('media', $media_type->id(), 'field_media_image');
+  if (!$field_config) {
+    $field_config = FieldConfig::create([
+      'field_storage' => $field_storage,
+      'bundle' => $media_type->id(),
+      'label' => 'Image',
+      'required' => TRUE,
+      'settings' => [
+        'file_directory' => '[date:custom:Y]-[date:custom:m]',
+        'file_extensions' => 'png gif jpg jpeg svg',
+        'max_filesize' => '',
+        'max_resolution' => '',
+        'min_resolution' => '',
+        'alt_field' => TRUE,
+        'alt_field_required' => TRUE,
+        'title_field' => FALSE,
+        'title_field_required' => FALSE,
+        'default_image' => [
+          'uuid' => '',
+          'alt' => '',
+          'title' => '',
+          'width' => NULL,
+          'height' => NULL,
+        ],
+      ],
+    ]);
+    $field_config->save();
+  }
+}
+
+/**
+ * Creates the oEmbed field for the remote video media type.
+ */
+function _mercury_editor_demo_create_oembed_field($media_type) {
+  $field_storage = FieldStorageConfig::loadByName('media', 'field_media_oembed_video');
+  if (!$field_storage) {
+    $field_storage = FieldStorageConfig::create([
+      'field_name' => 'field_media_oembed_video',
+      'entity_type' => 'media',
+      'type' => 'string',
+      'settings' => [
+        'max_length' => 255,
+      ],
+    ]);
+    $field_storage->save();
+  }
+
+  $field_config = FieldConfig::loadByName('media', $media_type->id(), 'field_media_oembed_video');
+  if (!$field_config) {
+    $field_config = FieldConfig::create([
+      'field_storage' => $field_storage,
+      'bundle' => $media_type->id(),
+      'label' => 'Video URL',
+      'required' => TRUE,
+    ]);
+    $field_config->save();
+  }
+}
+
+/**
  * Implements hook_install().
  */
 function mercury_editor_demo_install() {
+  // Ensure required media types exist before proceeding
+  _mercury_editor_demo_ensure_media_types();
 
   $test_node_type = NodeType::load('me_test_ct');
   if (!$test_node_type) {
@@ -43,9 +181,37 @@ function mercury_editor_demo_install() {
     ]);
     $view_mode->save();
 
-    // Configure the view mode display for image media type.
-    $image_view_display = \Drupal::service('entity_display.repository')->getViewDisplay('media', 'image', 'me_test_feature_card');
-    $image_view_display->setComponent('field_media_image', [
+    // Configure the view mode display for image media type if it exists.
+    $image_media_type = MediaType::load('image');
+    if ($image_media_type) {
+      $image_view_display = \Drupal::service('entity_display.repository')->getViewDisplay('media', 'image', 'me_test_feature_card');
+      $image_view_display->setComponent('field_media_image', [
+        'type' => 'image',
+        'label' => 'hidden',
+        'settings' => [
+          'image_style' => '',
+          'image_link' => '',
+        ],
+      ]);
+      $image_view_display->save();
+    }
+  }
+
+  // Configure the media display only if image media type exists
+  $image_media_type = MediaType::load('image');
+  if ($image_media_type) {
+    $media_display = \Drupal::service('entity_display.repository')->getViewDisplay('media', 'image', 'me_test_feature_card');
+
+    // Remove all fields except the main image field.
+    $components = $media_display->getComponents();
+    foreach ($components as $field_name => $component) {
+      if ($field_name !== 'field_media_image') {
+        $media_display->removeComponent($field_name);
+      }
+    }
+
+    // Configure the image field.
+    $media_display->setComponent('field_media_image', [
       'type' => 'image',
       'label' => 'hidden',
       'settings' => [
@@ -53,30 +219,9 @@ function mercury_editor_demo_install() {
         'image_link' => '',
       ],
     ]);
-    $image_view_display->save();
+
+    $media_display->save();
   }
-
-  $media_display = \Drupal::service('entity_display.repository')->getViewDisplay('media', 'image', 'me_test_feature_card');
-
-  // Remove all fields except the main image field.
-  $components = $media_display->getComponents();
-  foreach ($components as $field_name => $component) {
-    if ($field_name !== 'field_media_image') {
-      $media_display->removeComponent($field_name);
-    }
-  }
-
-  // Configure the image field.
-  $media_display->setComponent('field_media_image', [
-    'type' => 'image',
-    'label' => 'hidden',
-    'settings' => [
-      'image_style' => '',
-      'image_link' => '',
-    ],
-  ]);
-
-  $media_display->save();
 
   // Create and configure a Layout Paragraphs section paragraph type.
   $paragraphs_type = ParagraphsType::load('me_test_section');
@@ -892,6 +1037,10 @@ function mercury_editor_demo_install() {
   ])->save();
   // Use claro as the Mercury Editor theme.
   $config->getEditable('mercury_editor.settings')->set('edit_screen_theme', 'claro')->save();
+
+  // Ensure SVG support is enabled for image media
+  _mercury_editor_demo_allow_svg_on_media_image();
+
   _mercury_editor_demo_create_content();
 }
 
@@ -1125,13 +1274,21 @@ function _mercury_editor_demo_create_content() {
  * Ensure SVG is allowed on the core Image media type field.
  */
 function _mercury_editor_demo_allow_svg_on_media_image() {
+  // Only proceed if image media type exists.
+  $image_media_type = MediaType::load('image');
+  if (!$image_media_type) {
+    \Drupal::logger('mercury_editor_demo')->warning('Image media type not found, skipping SVG configuration.');
+    return;
+  }
+
   // Load the field storage config for the media image field.
   $field_storage = FieldStorageConfig::loadByName('media', 'field_media_image');
   if ($field_storage) {
     $settings = $field_storage->getSettings();
 
     // Get current allowed extensions.
-    $extensions = explode(' ', $settings['file_extensions']);
+    $file_extensions = $settings['file_extensions'] ?? 'png gif jpg jpeg';
+    $extensions = explode(' ', $file_extensions);
 
     // Add 'svg' if not already present.
     if (!in_array('svg', $extensions)) {
@@ -1142,6 +1299,9 @@ function _mercury_editor_demo_allow_svg_on_media_image() {
 
       \Drupal::logger('mercury_editor_demo')->info('Added SVG to allowed file extensions on field_media_image.');
     }
+  }
+  else {
+    \Drupal::logger('mercury_editor_demo')->warning('field_media_image field storage not found.');
   }
 }
 
@@ -1187,8 +1347,19 @@ function _mercury_editor_demo_create_media_from_file($filename, $media_name, $al
     $bundle = ($extension === 'svg') ? 'image' : 'image';
 
     // Verify media bundle exists.
-    if (!MediaType::load($bundle)) {
+    $media_type = MediaType::load($bundle);
+    if (!$media_type) {
       \Drupal::logger('mercury_editor_demo')->warning('Media bundle @bundle does not exist, skipping @file', [
+        '@bundle' => $bundle,
+        '@file' => $filename,
+      ]);
+      return NULL;
+    }
+
+    // Verify the required field exists for this media type
+    $source_field = $media_type->getSource()->getSourceFieldDefinition($media_type);
+    if (!$source_field) {
+      \Drupal::logger('mercury_editor_demo')->warning('Source field not found for media type @bundle, skipping @file', [
         '@bundle' => $bundle,
         '@file' => $filename,
       ]);
