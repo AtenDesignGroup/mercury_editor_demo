@@ -1074,8 +1074,8 @@ function _mercury_editor_demo_create_content() {
   $featured_card1->save();
 
   // Create a featured card for demonstration.
-  // Create media entity for rearrange SVG icon.
-  $featured_card2_media = _mercury_editor_demo_create_media_from_file('rearrange.svg', 'Rearrange Icon 2', 'Icon showing drag and drop rearrangement');
+  // Create media entity for layout SVG icon.
+  $featured_card2_media = _mercury_editor_demo_create_media_from_file('layout.svg', 'Layout Icon 2', 'Icon showing layouts');
 
   $featured_card2 = Paragraph::create([
     'type' => 'me_test_featured_card',
