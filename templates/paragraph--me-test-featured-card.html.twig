@@ -1,0 +1,9 @@
+{% set link_url = content.field_me_test_link|field_value[0]['#url'] ?? null %}
+
+<div {{ attributes.addClass('paragraph', 'paragraph--type--me-test-card')}}>
+  {{ include('mercury_editor_demo:feature-card', {
+    title: content.field_me_test_title,
+    media: content.field_me_test_media,
+    link: { url: link_url, text: '' },
+  }) }}
+</div>

@@ -1,0 +1,32 @@
+options:
+  card_style:
+    plugin: css_class
+    label: Card Style
+    description: Choose a style for the card component.
+    multiple: false
+    options:
+      - label: Primary
+        class: card-primary
+      - label: Secondary
+        class: card-secondary
+      - label: Teaser
+        class: card-teaser
+  button_style:
+    plugin: css_class
+    label: Button Style
+    description: Choose a style for the card's button link.
+    multiple: false
+    options:
+      - label: Neptune
+        class: button-neptune
+      - label: Nebula
+        class: button-nebula
+
+contexts:
+  paragraphs:
+    me_test_featured_card:
+      options:
+        card_style: true
+    me_test_button:
+      options:
+        button_style: true

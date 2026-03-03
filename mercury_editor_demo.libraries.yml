@@ -1,0 +1,31 @@
+component_menu:
+  css:
+    component:
+      css/component-menu.css: {}
+
+#
+# Global libraries
+#
+global:
+  version: "1.0"
+  css:
+    base:
+      components/00-base/animations.css: {}
+      components/00-base/colors.css: {}
+      components/00-base/icons.css: {}
+      components/00-base/sizes.css: {}
+      components/00-base/spacing.css: {}
+      components/00-base/typography.css: {}
+      components/01-elements/buttons.css: {}
+      components/01-elements/links.css: {}
+  dependencies:
+    - mercury_editor_demo/fonts
+
+fonts:
+  version: "1.0"
+  css:
+    base:
+      "https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap":
+        { type: external, minified: true }
+      "https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap":
+        { type: external, minified: true }

@@ -1,0 +1,25 @@
+@mixin button() {
+  align-items: center;
+  background-color: var(--me-color-neptune);
+  border-radius: 8px;
+  color: var(--me-color-white);
+  display: flex;
+  gap: 12px;
+  padding: 24px 40px;
+  text-decoration: none;
+  width: fit-content;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .me-button__icon {
+    block-size: 24px;
+    display: inline-flex;
+    inline-size: 24px;
+
+    svg {
+      fill: var(--me-color-white);
+    }
+  }
+}

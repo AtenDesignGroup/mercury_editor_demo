@@ -1,0 +1,33 @@
+@use "partials" as *;
+
+.me-card {
+  .me-card__title {
+    @include type-scale(heading, h4);
+    color: var(--me-color-nebula);
+    font-family: var(--me-ff-base);
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .me-card__body {
+    border-radius: 12px;
+    background: var(--me-color-stardust);
+    display: flex;
+    padding: 48px;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .me-card__text p {
+    @include type-scale(body, 24);
+    color: var(--me-color-nebula);
+    font-family: var(--me-ff-base);
+  }
+
+  .me-card__link {
+    @include button();
+    @include type-scale(label, 18);
+    font-family: var(--me-ff-base);
+    font-weight: 700;
+  }
+}
