@@ -1,0 +1,65 @@
+//
+//  @file
+//  Elements - Icon
+//
+
+$icons_path: "/modules/custom/mercury_editor_demo/images/svg";
+
+:root {
+  --me-i-controls:      url("#{$icons_path}/controls.svg");
+  --me-i-devices:       url("#{$icons_path}/devices.svg");
+  --me-i-drupal-logo:   url("#{$icons_path}/drupal-logo.svg");
+  --me-i-edit-content:  url("#{$icons_path}/edit-content.svg");
+  --me-i-edit-text:     url("#{$icons_path}/edit-text.svg");
+  --me-i-layout:        url("#{$icons_path}/layout.svg");
+  --me-i-rearrange:     url("#{$icons_path}/rearrange.svg");
+  --me-i-search:        url("#{$icons_path}/search.svg");
+  --me-i-arrow-right:   url("#{$icons_path}/arrow-right.svg");
+}
+
+// Base
+.e-icon {
+  background-color: var(--me-color-black);
+  block-size: 32px;
+  display: block;
+  font: 0/0 transparent;
+  inline-size: 32px;
+  mask-size: cover;
+}
+
+//  Icons
+.e-icon--controls {
+  mask: var(--me-i-controls) no-repeat center;
+}
+
+.e-icon--devices {
+  mask: var(--me-i-devices) no-repeat center;
+}
+
+.e-icon--drupal-logo {
+  mask: var(--me-i-drupal-logo) no-repeat center;
+}
+
+.e-icon--edit-content {
+  mask: var(--me-i-edit-content) no-repeat center;
+}
+
+.e-icon--edit-text {
+  mask: var(--me-i-edit-text) no-repeat center;
+}
+
+.e-icon--layout {
+  mask: var(--me-i-layout) no-repeat center;
+}
+
+.e-icon--rearrange {
+  mask: var(--me-i-rearrange) no-repeat center;
+}
+
+.e-icon--search {
+  mask: var(--me-i-search) no-repeat center;
+}
+
+.e-icon--arrow-right {
+  mask: var(--me-i-arrow-right) no-repeat center;
+}

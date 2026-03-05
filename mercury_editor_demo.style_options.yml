@@ -1,4 +1,14 @@
 options:
+  button_color:
+    plugin: property
+    label: Button Color
+    default: nebula
+    description: Choose a color for the button link.
+    options:
+      nebula:
+        label: Nebula
+      neptune:
+        label: Neptune
   card_style:
     plugin: css_class
     label: Card Style
@@ -29,4 +39,4 @@ contexts:
         card_style: true
     me_test_button:
       options:
-        button_style: true
+        button_color: true

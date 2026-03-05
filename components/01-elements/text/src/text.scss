@@ -1,0 +1,13 @@
+//
+//  @file
+//  Elements - Text
+//
+
+//  Imports
+@use 'partials' as *;
+
+//  Text
+[class*="e-text"] p {
+  font-family: var(--me-ff-base);
+  @include type-scale('body', 'base');
+}

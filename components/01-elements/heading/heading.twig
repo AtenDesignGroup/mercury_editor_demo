@@ -1,0 +1,30 @@
+{#
+/**
+ * @file
+ * Elements - Heading
+ *
+ * Available props:
+ * - attributes: [Drupal\Core\Template\Attribute] Any custom attributes needed for this component.
+ * - level: [string] The value of the heading level, such as h1, h2, etc.
+ * - href: [string] The value of the link path or URL.
+ * - text: [string] The value of what will be displayed as the heading.
+ */
+#}
+
+{% set attributes = create_attribute(attributes) %}
+
+{% set classes = [
+  'e-heading',
+] %}
+
+<{{ level|default('h2') }} {{ attributes.addClass(classes) }}>
+  {% if href is not empty %}
+    {{ include('lapl:link', {
+      effect: 'draw',
+      href: href,
+      text: text,
+    }, with_context = false) }}
+  {% else %}
+    {{- text -}}
+  {% endif %}
+</{{ level|default('h2') }}>

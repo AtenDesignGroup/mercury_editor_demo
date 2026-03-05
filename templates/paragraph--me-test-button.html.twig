@@ -1,0 +1,36 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a Button Paragraph.
+ *
+ * Available variables:
+ * - No additional variables are available for this template.
+ *
+ * @see template_preprocess_paragraph()
+ * @ingroup themeable
+ */
+#}
+
+{% extends 'paragraph.html.twig' %}
+
+{% set rendered_content = content|without(
+  'field_me_test_button_link',
+) %}
+
+{% set button_href = content.field_me_test_button_link.0['#url'] ?? '' %}
+{% set button_text = content.field_me_test_button_link.0['#title'] ?? '' %}
+{% set button_external = content.field_me_test_button_link.0['#options']['external'] ?? false %}
+{% set button_color = style_options['button_color'] ?? '' %}
+
+{% block content %}
+  {{ include('mercury_editor_demo:button', {
+    href: button_href,
+    text: button_text,
+    external: button_external,
+    color: button_color,
+    style: 'primary',
+    icon_suffix: 'arrow-right',
+  }, with_context = false) }}
+
+  {{ rendered_content }}
+{% endblock %}

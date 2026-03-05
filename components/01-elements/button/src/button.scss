@@ -1,0 +1,108 @@
+//
+//  @file
+//  Elements - Button
+//
+
+//  Imports
+@use 'partials' as *;
+
+//  Base
+:root {
+  --me-button-background-color: var(--me-color-nebula);
+  --me-button-hover-background-color: var(--me-color-neptune);
+  --me-button-color: var(--me-color-white);
+}
+
+[class*="e-button"] {
+  appearance: none;
+  background-color: var(--me-button-background-color);
+  color: var(--me-button-color);
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: var(--me-fw-bold);
+  inline-size: fit-content;
+  max-inline-size: 480px;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  transition:
+    background-color 0.25s var(--transition-easeInOutQuad),
+    color 0.25s var(--transition-easeInOutQuad);
+  @include type-scale('body', 'base');
+  
+
+  &:hover,
+  &:focus {
+    background-color: var(--me-button-hover-background-color);
+  }
+
+  &:hover > .e-button__text,
+  &:focus > .e-button__text {
+    background-size: 100%;
+    text-decoration: none;
+  }
+}
+
+//  Text
+.e-button__text {
+  background-color: transparent !important;
+  background-image: linear-gradient(
+      180deg,
+      transparent 0,
+      transparent calc(100% - 1px),
+      currentColor calc(100% - 1px),
+      currentColor 100%
+  );
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 0;
+  display: inline;
+  position: relative;
+  text-decoration: none;
+  transition: background-size 0.35s var(--transition-easeInOutQuad);
+  z-index: 10;
+}
+
+//  Styles
+.e-button--primary {
+  border-radius: 8px;
+  padding-block: 24px 22px;
+  padding-inline: 40px;
+}
+
+//  Icons
+.e-button--icon-suffix {
+  padding-inline-end: 80px;
+
+  .e-button__suffix {
+    background-color: currentColor;
+    block-size: 32px;
+    inline-size: 32px;
+    inset-block: 0;
+    inset-inline-end: 40px;
+    margin-block: auto;
+    position: absolute;
+    transform: translateX(0);
+    transition: transform 0.25s var(--transition-easeInOutQuad);
+    z-index: 10;
+  }
+
+  &:hover > .e-button__suffix,
+  &:focus > .e-button__suffix {
+    transform: translateX(4px);
+  }
+}
+
+//  Colors
+.e-button--nebula {
+  --me-button-background-color: var(--me-color-nebula);
+  --me-button-hover-background-color: var(--me-color-neptune);
+  --me-button-color: var(--me-color-white);
+}
+
+.e-button--neptune {
+  --me-button-background-color: var(--me-color-neptune);
+  --me-button-hover-background-color: var(--me-color-nebula);
+  --me-button-color: var(--me-color-white);
+}

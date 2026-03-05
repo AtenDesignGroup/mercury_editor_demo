@@ -1,0 +1,15 @@
+//
+//  @file
+//  Elements - Heading
+//
+
+//  Imports
+@use 'partials' as *;
+
+//  H2
+[class*="e-heading"] h2 {
+  color: var(--me-color-nebula);
+  font-family: var(--me-ff-base);
+  font-weight: var(--me-fw-bold);
+  @include type-scale('heading', 'h2');
+}

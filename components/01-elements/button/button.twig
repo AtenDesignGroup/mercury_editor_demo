@@ -1,0 +1,72 @@
+{#
+/**
+ * @file
+ * Elements - Button
+ *
+ * Available props:
+ * - attributes: [Drupal\Core\Template\Attribute] Any custom attributes needed for this component.
+ * - href: [string] The value of the link path or URL.
+ * - text: [string] The value of what will be displayed as the link.
+ * - external: [boolean] Either an external or internal link.
+ * - color: [string] The value of a type of button, mostly color-related.
+ * - style: [string] A value to specify a style of button.
+ * - icon_prefix: [string] The ID of an Icon to be displayed at the front.
+ * - icon_suffix: [string] The ID of an Icon to be displayed at the back.
+ */
+#}
+
+{% set attributes = create_attribute(attributes) %}
+
+{% set classes = [
+  'e-button',
+  color ? 'e-button--' ~ color : 'e-button--nebula',
+  style ? 'e-button--' ~ style : 'e-button--primary',
+  icon_prefix is not empty ? 'e-button--icon-prefix',
+  icon_suffix is not empty ? 'e-button--icon-suffix',
+] %}
+
+{% if href is not empty %}
+  <a href="{{ href }}" {{ attributes.addClass(classes) }} {{ external ? 'target="_blank"' }}>
+    {% if icon_prefix is not empty %}
+      {{ include('mercury_editor_demo:icon', {
+        attributes: {
+          class: 'e-button__prefix',
+        },
+        id: icon_prefix,
+      }, with_context = false) }}
+    {% endif %}
+
+    <span class="e-button__text">{{- text -}}</span>
+
+    {% if icon_suffix is not empty %}
+      {{ include('mercury_editor_demo:icon', {
+        attributes: {
+          class: 'e-button__suffix',
+        },
+        id: icon_suffix,
+      }, with_context = false) }}
+    {% endif %}
+  </a>
+{% else %}
+  <button {{ attributes.addClass(classes) }}>
+    {% if icon_prefix is not empty %}
+      {{ include('mercury_editor_demo:icon', {
+        attributes: {
+          class: 'e-button__prefix',
+        },
+        id: icon_prefix,
+      }, with_context = false) }}
+    {% endif %}
+
+    <span class="e-button__text">{{- text -}}</span>
+
+    {% if icon_suffix is not empty %}
+      {{ include('mercury_editor_demo:icon', {
+        attributes: {
+          class: 'e-button__suffix',
+        },
+        id: icon_suffix,
+      }, with_context = false) }}
+    {% endif %}
+  </button>
+{% endif %}

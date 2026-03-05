@@ -70,73 +70,22 @@
 /* prettier-ignore */
 $typographic-scale: (
   heading: (
-    h1: (
-      mobile: (44, 52),
-      tablet: (52, 60),
-      sm-desktop: (72, 72),
-      desktop: (96, 92),
-    ),
     h2: (
-      mobile: (32, 36),
-      tablet: (42, 48),
-      sm-desktop: (44, 52),
-      desktop: (52, 60),
-    ),
-    h3: (
-      mobile: (24, 28),
-      tablet: (28, 32),
-      sm-desktop: (32, 36),
-      desktop: (44, 52),
-    ),
-    h4: (
-      mobile: (22, 28),
-      tablet: (24, 28),
-      sm-desktop: (28, 32),
-      desktop: (30, 36),
+      mobile: (24, 32),
+      tablet: (32, 40),
+      sm-desktop: (40, 48),
+      desktop: (40, 48),
     ),
   ),
   body: (
     base: (
-      mobile: (14, 22),
-      tablet: (16, 26),
-      sm-desktop: (18, 28),
-      desktop: (18, 28),
-    ),
-    24: (
-      mobile: (16, 24),
-      tablet: (18, 28),
-      sm-desktop: (22, 32),
+      mobile: (18, 28),
+      tablet: (20, 30),
+      sm-desktop: (20, 30),
       desktop: (24, 36),
     ),
-    18: (
-      mobile: (14, 22),
-      tablet: (16, 26),
-      sm-desktop: (18, 28),
-      desktop: (18, 28),
-    ),
-    16: (
-      mobile: (14, 22),
-      tablet: (16, 26),
-      sm-desktop: (16, 26),
-      desktop: (16, 26),
-    ),
   ),
-  label: (
-    18: (
-      mobile: (14, 24),
-      tablet: (16, 28),
-      sm-desktop: (18, 28),
-    ),
-    16: (
-      mobile: (14, 24),
-      tablet: (16, 24),
-      sm-desktop: (16, 28),
-    ),
-    14: (
-      mobile: (12, 22),
-      tablet: (14, 24),
-    ),
-  ),
+  label: (),
 );
 
 @include type-scale-custom-props($typographic-scale);

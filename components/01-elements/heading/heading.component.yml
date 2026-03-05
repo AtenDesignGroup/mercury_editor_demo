@@ -1,0 +1,18 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+name: Heading
+status: stable
+group: Elements
+props:
+  type: object
+  required:
+    - text
+  properties:
+    level:
+      title: Level
+      type: string
+    href:
+      title: HREF
+      type: string
+    text:
+      title: Text
+      type: string

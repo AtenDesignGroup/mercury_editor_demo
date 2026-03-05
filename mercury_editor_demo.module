@@ -62,6 +62,27 @@ function mercury_editor_demo_theme($existing, $type, $theme, $path) {
 }
 
 /**
+ * Preprocess Paragraph
+ * Implements hook_preprocess_paragraph().
+ * @param $variables
+ * @return void
+ */
+function mercury_editor_demo_preprocess_paragraph(&$variables) {
+  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+  $paragraph = $variables['paragraph'];
+  $behaviorSettings = $paragraph->getAllBehaviorSettings();
+
+  // Set style option behaviors as a logical template variable.
+  if (!empty($behaviorSettings['style_options'])) {
+    foreach ($behaviorSettings['style_options'] as $key => $style) {
+      if (!empty($style['property'])) {
+        $variables['style_options'][$key] = $style['property'];
+      }
+    }
+  }
+}
+
+/**
  * Creates a paragraph field for the provided entity type and bundle.
  */
 function mercury_editor_demo_make_paragraph_field(
