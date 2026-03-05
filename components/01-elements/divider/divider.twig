@@ -1,0 +1,19 @@
+{#
+/**
+ * @file
+ * Components - Divider
+ *
+ * Available props:
+ * - attributes: [Drupal\Core\Template\Attribute] Any custom attributes needed for this component.
+ */
+#}
+
+{% set attributes = create_attribute(attributes) %}
+
+{% set classes = [
+  'e-divider',
+] %}
+
+<div {{ attributes.addClass(classes) }}>
+  <hr />
+</div>

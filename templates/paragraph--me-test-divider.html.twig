@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a Divider Paragraph.
+ *
+ * Available variables:
+ * - No additional variables are available for this template.
+ *
+ * @see template_preprocess_paragraph()
+ * @ingroup themeable
+ */
+#}
+
+{% extends 'paragraph.html.twig' %}
+
+{% set rendered_content = content|without() %}
+
+{% block content %}
+  {{ include('mercury_editor_demo:divider', {}, with_context = false) }}
+  {{ rendered_content }}
+{% endblock %}

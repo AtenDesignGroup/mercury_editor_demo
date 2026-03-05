@@ -1,0 +1,20 @@
+//
+//  @file
+//  Components - Divider
+//
+
+//  Base
+.e-divider {
+  align-items: center;
+  block-size: 60px;
+  display: flex;
+
+  hr {
+    background-color: var(--me-color-gray-400);
+    block-size: 1px;
+    border: none;
+    display: block;
+    inline-size: 100%;
+    margin: 0;
+  }
+}
