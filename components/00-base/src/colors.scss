@@ -18,8 +18,8 @@
 //  Grayscale
 :root {
   --me-color-white:    #ffffff;
-  --me-color-gray-100: #f8f9fa;
-  --me-color-gray-200: #e9ecef;
+  --me-color-gray-100: #FDFCFF;
+  --me-color-gray-200: #F2EDFF;
   --me-color-gray-300: #dee2e6;
   --me-color-gray-400: #CAC1E6;
   --me-color-gray-500: #adb5bd;
@@ -28,4 +28,14 @@
   --me-color-gray-800: #343a40;
   --me-color-gray-900: #212529;
   --me-color-black:    #000000;
+}
+
+//  Gradients
+:root {
+  --me-gradient-gray:     linear-gradient(180deg, #FDFCFF 0%, #F2EDFF 100%);
+  --me-gradient-saturn:   linear-gradient(180deg, #FF9000 0%, #E00129 100%);
+  --me-gradient-mercury:  linear-gradient(180deg, #FF004C 0%, #7C2D80 100%);
+  --me-gradient-jupiter:  linear-gradient(180deg, #E00129 0%, #7427F3 100%);
+  --me-gradient-pluto:    linear-gradient(180deg, #7C2D80 0%, #5100B7 100%);
+  --me-gradient-neptune:  linear-gradient(180deg, #7427F3 0%, #210080 100%);
 }
