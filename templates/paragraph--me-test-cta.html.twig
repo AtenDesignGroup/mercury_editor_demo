@@ -1,0 +1,36 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a CTA Paragraph.
+ *
+ * Available variables:
+ * - No additional variables are available for this template.
+ *
+ * @see template_preprocess_paragraph()
+ * @ingroup themeable
+ */
+#}
+
+{% extends 'paragraph.html.twig' %}
+
+{% set rendered_content = content|without(
+  'field_me_test_title',
+  'field_me_test_links',
+) %}
+
+{% set buttons = [] %}
+{% for link in content.field_me_test_links|field_value %}
+  {% set buttons = buttons|merge([{
+    href: link['#url'] is defined ? link['#url'].toString() : (link[0]['#url'] is defined ? link[0]['#url'].toString() : null),
+    text: link['#title'] is defined ? link['#title'] : (link[0]['#title'] is defined ? link[0]['#title'] : ''),
+  }]) %}
+{% endfor %}
+
+{% block content %}
+  {{ include('mercury_editor_demo:cta', {
+    heading: content.field_me_test_title|field_value,
+    buttons: buttons,
+  }, with_context = false) }}
+
+  {{ rendered_content }}
+{% endblock %}

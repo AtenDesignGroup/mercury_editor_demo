@@ -1,0 +1,41 @@
+{#
+/**
+ * @file
+ * Components - CTA
+ *
+ * Available props:
+ * - attributes: [Drupal\Core\Template\Attribute] Any custom attributes needed for this component.
+ * - heading: [string] The value of the CTA heading.
+ * - buttons: [array] Array of button objects with 'href' and 'text' properties.
+ */
+#}
+
+{% set attributes = create_attribute(attributes) %}
+
+{% set classes = [
+  'c-cta',
+] %}
+
+<div {{ attributes.addClass(classes) }}>
+  <div class="c-cta__inner">
+    {% if heading is not empty %}
+      <div class="c-cta__heading">{{ heading }}</div>
+    {% endif %}
+
+    {% if buttons is not empty %}
+      <div class="c-cta__buttons">
+        {% for button in buttons %}
+          {% if button.href is not empty %}
+            {{ include('mercury_editor_demo:button', {
+              href: button.href,
+              text: button.text,
+              color: 'nebula-dark',
+              style: 'primary',
+              icon_suffix: 'arrow-right',
+            }, with_context = false) }}
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</div>

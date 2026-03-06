@@ -5,8 +5,3 @@ type: module
 core_version_requirement: ^10 || ^11
 dependencies:
   - mercury_editor:mercury_editor
-  - media:media
-  - media:media_library
-  - heading:heading
-  - svg_image:svg_image
-  - twig_field_value:twig_field_value

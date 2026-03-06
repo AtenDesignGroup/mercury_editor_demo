@@ -32,6 +32,7 @@
 //  Text
 .c-card__text {
   color: var(--me-color-nebula);
+  font-weight: var(--me-fw-medium);
   @include type-scale('body', 'base');
 
   p {

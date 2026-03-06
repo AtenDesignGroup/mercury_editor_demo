@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * Components - Slideshow
+ *
+ * Available props:
+ * - attributes: [Drupal\Core\Template\Attribute] Any custom attributes needed for this component.
+ * - slides: [array] Array of rendered media items, one per slide.
+ */
+#}
+
+{% set attributes = create_attribute(attributes) %}
+
+{% set classes = [
+  'c-slideshow',
+  'splide',
+] %}
+
+<div {{ attributes.addClass(classes) }}>
+  <div class="splide__track">
+    <ul class="splide__list">
+      {% for slide in slides %}
+        <li class="splide__slide">
+          <div class="c-slideshow__media">
+            {{ slide }}
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+name: Slideshow
+status: stable
+group: Components
+props:
+  type: object
+  properties:
+    slides:
+      title: Slides
+      type: array
+      slide:
+        type: string

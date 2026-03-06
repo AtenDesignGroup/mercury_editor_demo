@@ -70,6 +70,12 @@
 /* prettier-ignore */
 $typographic-scale: (
   heading: (
+    h1: (
+      mobile: (24, 32),
+      tablet: (32, 40),
+      sm-desktop: (40, 56),
+      desktop: (40, 56),
+    ),
     h2: (
       mobile: (24, 32),
       tablet: (32, 40),
@@ -91,7 +97,14 @@ $typographic-scale: (
       desktop: (24, 36),
     ),
   ),
-  label: (),
+  label: (
+    base: (
+      mobile: (16, 24),
+      tablet: (18, 26),
+      sm-desktop: (20, 28),
+      desktop: (20, 28),
+    ),
+  ),
 );
 
 @include type-scale-custom-props($typographic-scale);

@@ -1,0 +1,22 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+name: CTA
+status: stable
+group: Components
+props:
+  type: object
+  properties:
+    heading:
+      title: Heading
+      type: string
+    buttons:
+      title: Buttons
+      type: array
+      items:
+        type: object
+        properties:
+          href:
+            title: Link URL
+            type: string
+          text:
+            title: Link Text
+            type: string
