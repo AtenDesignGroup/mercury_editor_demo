@@ -6,11 +6,13 @@
 //  Imports
 @use 'partials' as *;
 
-//  H2
-[class*="e-heading"] h2 {
-  color: var(--me-color-nebula);
-  font-family: var(--me-ff-base);
-  font-weight: var(--me-fw-bold);
-  margin: 0;
-  @include type-scale('heading', 'h2');
+//  Base
+[class*="e-heading"] {
+  h2, h3 {
+    color: var(--me-color-nebula);
+    font-family: var(--me-ff-base);
+    font-weight: var(--me-fw-bold);
+    margin: 0;
+    @include type-scale('heading', 'h2');
+  }
 }

@@ -14,3 +14,38 @@ a {
     text-decoration: none;
   }
 }
+
+
+//  Base
+.e-link {
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &:hover .e-link__text,
+  &:focus .e-link__text {
+    background-size: 100%;
+  }
+}
+
+//  Text
+.e-link__text {
+  background-color: transparent !important;
+  background-image: linear-gradient(
+      180deg,
+      transparent 0,
+      transparent calc(100% - 1px),
+      currentColor calc(100% - 1px),
+      currentColor 100%
+  );
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 0;
+  display: inline;
+  position: relative;
+  transition: background-size 0.35s var(--transition-easeInOutQuad);
+  z-index: 10;
+}
