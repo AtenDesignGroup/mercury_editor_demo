@@ -19,7 +19,7 @@
 
 <{{ level|default('h2') }} {{ attributes.addClass(classes) }}>
   {% if href is not empty %}
-    {{ include('lapl:link', {
+    {{ include('mercury_editor_demo:link', {
       effect: 'draw',
       href: href,
       text: text,
