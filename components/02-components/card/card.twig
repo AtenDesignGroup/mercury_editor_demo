@@ -1,37 +1,51 @@
 {#
 /**
  * @file
- * Card Component
- *
- * A flexible card component with title, image, and description.
+ * Components -  Card
  *
  * Available props:
- * - title: Card title (required)
- * - image: Image object with url, alt, width, height
- * - text: Card description text
- * - link: Optional link object with url, title, target
+ * - attributes: [Drupal\Core\Template\Attribute] Any custom attributes needed for this component.
+ * - heading: [string] The value of the card heading.
+ * - text: [string] The value of the card text.
+ * - link: [array] An associative array containing the values for the card link:
+ *   - href: [string] The value of the link path or URL.
+ *   - text: [string] The value of the link text.
  */
 #}
 
-{% set attributes = create_attribute() %}
+{% set attributes = create_attribute(attributes) %}
 
 {% set classes = [
-  'me-card',
+  'c-card',
 ] %}
 
 <div {{attributes.addClass(classes)}}>
-  <div class="me-card__body">
-    <h3 class="me-card__title">{{ title }}</h3>
-    {% if text %}
-      <div class="me-card__text">
-        {{ text }}
-      </div>
+  <div class="c-card__content">
+    {% if heading is not empty %}
+      {{ include('mercury_editor_demo:heading', {
+        attributes: {
+          class: 'c-card__heading',
+        },
+        level: 'h3',
+        text: heading,
+      }, with_context = false) }}
     {% endif %}
 
-    {% if link %}
-      <a class="me-card__link" href="{{ link.url }}">
-        {{ link.text }}
-      </a>
+    {% if text is not empty %}
+      <div class="c-card__text">{{ text }}</div>
+    {% endif %}
+
+    {% if link is not empty %}
+      {{ include('mercury_editor_demo:button', {
+        attributes: {
+          class: 'c-card__button',
+        },
+        href: link.href,
+        text: link.text,
+        style: 'primary',
+        color: 'neptune',
+        icon_suffix: 'arrow-right',
+      }, with_context = false) }}
     {% endif %}
   </div>
 </div>

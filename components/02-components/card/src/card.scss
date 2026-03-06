@@ -1,33 +1,40 @@
-@use "partials" as *;
+//
+//  @file
+//  Components - Card
+//
 
-.me-card {
-  .me-card__title {
-    @include type-scale(heading, h4);
-    color: var(--me-color-nebula);
-    font-family: var(--me-ff-base);
-    font-weight: 700;
-    margin: 0;
-  }
+//  Imports
+@use 'partials' as *;
 
-  .me-card__body {
-    border-radius: 12px;
-    background: var(--me-color-stardust);
-    display: flex;
-    padding: 48px;
-    flex-direction: column;
-    gap: 20px;
-  }
+//  Base
+.c-card {
+  background-color: var(--me-color-stardust);
+  border-radius: 12px;
+  max-inline-size: 640px;
+  padding-block: 48px;
+  padding-inline: 48px;
+}
 
-  .me-card__text p {
-    @include type-scale(body, 24);
-    color: var(--me-color-nebula);
-    font-family: var(--me-ff-base);
-  }
+//  Content
+.c-card__content {
+  display: flex;
+  flex-flow: nowrap column;
+  gap: 20px;
+}
 
-  .me-card__link {
-    @include button();
-    @include type-scale(label, 18);
-    font-family: var(--me-ff-base);
-    font-weight: 700;
+//  Heading
+.c-card__heading {
+  color: var(--me-color-nebula);
+  margin-block: 0;
+  @include type-scale('heading', 'h3');
+}
+
+//  Text
+.c-card__text {
+  color: var(--me-color-nebula);
+  @include type-scale('body', 'base');
+
+  p {
+    margin-block: 0;
   }
 }
