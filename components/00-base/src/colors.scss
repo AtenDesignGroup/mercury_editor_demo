@@ -1,39 +1,31 @@
 //
-// Base - Color
-//
-// - 01 - Theme Colors
-// - 02 - Grayscale
+//  @file
+//  Base - Color
 //
 
-//------------------------------------
-//  01 - Theme Colors
-//------------------------------------
-
+//  Theme
 :root {
-  --me-color-saturn: #ff9000;
-  --me-color-mercury: #ff004c;
-  --me-color-jupiter: #e00129;
-  --me-color-pluto: #7c2d80;
-  --me-color-neptune: #7427f3;
-  --me-color-uranus: #5100b7;
-  --me-color-nebula: #210080;
-  --me-color-stardust: #f2edff;
+  --me-color-saturn:    #ff9000;
+  --me-color-mercury:   #ff004c;
+  --me-color-jupiter:   #e00129;
+  --me-color-pluto:     #7c2d80;
+  --me-color-neptune:   #7427f3;
+  --me-color-uranus:    #5100b7;
+  --me-color-nebula:    #210080;
+  --me-color-stardust:  #f2edff;
 }
 
-//------------------------------------
-//  02 - Grayscale
-//------------------------------------
-
+//  Grayscale
 :root {
-  --me-color-white: #ffffff;
+  --me-color-white:    #ffffff;
   --me-color-gray-100: #f8f9fa;
   --me-color-gray-200: #e9ecef;
   --me-color-gray-300: #dee2e6;
-  --me-color-gray-400: #ced4da;
+  --me-color-gray-400: #CAC1E6;
   --me-color-gray-500: #adb5bd;
   --me-color-gray-600: #6c757d;
   --me-color-gray-700: #495057;
   --me-color-gray-800: #343a40;
   --me-color-gray-900: #212529;
-  --me-color-black: #000000;
+  --me-color-black:    #000000;
 }

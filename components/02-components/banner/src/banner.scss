@@ -1,0 +1,48 @@
+//
+//  @file
+//  Components - Banner
+//
+
+//  Imports
+@use 'partials' as *;
+
+//  Base
+.c-banner {
+  background-color: var(--me-color-neptune);
+  border-radius: 12px;
+  color: var(--me-color-white);
+  overflow: hidden;
+  padding-block: 80px 120px;
+  padding-inline: 80px 120px;
+  position: relative;
+
+  &:after {
+    background: url('img/banner-gradient-hills.svg') no-repeat bottom right;
+    background-size: contain;
+    inset-block-end: 0;
+    inset-inline-end: 0;
+    content: '';
+    block-size: 260px;
+    inline-size: 100%;
+    position: absolute;
+    z-index: 1;
+  }
+}
+
+//  Content
+.c-banner__content {
+  position: relative;
+  z-index: 2;
+}
+
+//  Heading
+.c-banner__heading {
+  color: var(--me-color-white);
+  margin: 0;
+  @include type-scale('heading', 'h2');
+}
+
+//  Text
+.c-banner__text {
+  @include type-scale('body', 'base');
+}
