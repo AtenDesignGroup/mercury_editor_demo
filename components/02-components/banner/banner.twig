@@ -1,0 +1,35 @@
+{#
+/**
+ * @file
+ * Components - Banner
+ *
+ * Available props:
+ * - attributes: [Drupal\Core\Template\Attribute] Any custom attributes needed for this component.
+  * - heading: [string] The value of the banner heading.
+  * - text: [string] The value of the banner text.
+ */
+#}
+
+{% set attributes = create_attribute(attributes) %}
+
+{% set classes = [
+  'c-banner',
+] %}
+
+<div {{ attributes.addClass(classes) }}>
+  <div class="c-banner__content">
+    {% if heading is not empty %}
+      {{ include('mercury_editor_demo:heading', {
+        attributes: {
+          class: 'c-banner__heading',
+        },
+        level: 'h2',
+        text: heading,
+      }, with_context = false) }}
+    {% endif %}
+
+    {% if text is not empty %}
+      <div class="c-banner__text">{{ text }}</div>
+    {% endif %}
+  </div>
+</div>
