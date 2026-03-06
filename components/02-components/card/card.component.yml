@@ -1,24 +1,23 @@
 $schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
 name: Card
 status: stable
-group: Content
-description: A basic card component with title, text, and button link
+group: Components
 props:
   type: object
   properties:
-    title:
+    heading:
+      title: Heading
       type: string
-      title: Card Title
-      description: The main heading for the card
     text:
+      title: Text
       type: string
-      title: Card Text
-      description: Supporting text content for the card
     link:
+      title: Link
       type: object
-      title: Card Link
-      description: Optional link for the entire card
-    class:
-      type: string
-      title: Additional CSS Classes
-      description: Optional additional CSS classes to add to the card container
+      properties:
+        href:
+          title: Link URL
+          type: string
+        text:
+          title: Link Text
+          type: string
