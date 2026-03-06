@@ -1,0 +1,16 @@
+//
+//  @file
+//  Elements - Links
+//
+
+//  General
+a {
+  color: var(--me-color-primary);
+  text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    color: var(--me-color-secondary);
+    text-decoration: none;
+  }
+}

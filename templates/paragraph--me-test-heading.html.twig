@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a Heading Paragraph.
+ *
+ * Available variables:
+ * - No additional variables are available for this template.
+ *
+ * @see template_preprocess_paragraph()
+ * @ingroup themeable
+ */
+#}
+
+{% extends 'paragraph.html.twig' %}
+
+{% set rendered_content = content|without(
+  'field_me_test_heading'
+) %}
+
+{% block content %}
+  {{ include('mercury_editor_demo:heading', {
+    level: 'div',
+    text: content.field_me_test_heading|field_value,
+  }, with_context = false) }}
+
+  {{ rendered_content }}
+{% endblock %}

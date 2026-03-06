@@ -1,0 +1,19 @@
+{#
+/**
+ * @file
+ * Elements - Text
+ *
+ * Available props:
+ * - attributes: [Drupal\Core\Template\Attribute] Any custom attributes needed for this component.
+ */
+#}
+
+{% set attributes = create_attribute(attributes) %}
+
+{% set classes = [
+  'e-text',
+] %}
+
+<div {{ attributes.addClass(classes) }}>
+  {% block content %}{% endblock %}
+</div>

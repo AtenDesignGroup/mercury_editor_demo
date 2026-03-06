@@ -1,0 +1,30 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+name: Button
+status: stable
+group: Elements
+props:
+  type: object
+  required:
+    - text
+  properties:
+    href:
+      title: href
+      type: string
+    text:
+      title: Text
+      type: string
+    external:
+      title: External
+      type: boolean
+    color:
+      title: Color
+      type: string
+    style:
+      title: Style
+      type: string
+    icon_prefix:
+      title: Icon Prefix
+      type: string
+    icon_suffix:
+      title: Icon Suffix
+      type: string

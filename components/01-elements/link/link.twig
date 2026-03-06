@@ -1,0 +1,23 @@
+{#
+/**
+ * @file
+ * Elements - Link
+ *
+ * Available props:
+ * - attributes: [Drupal\Core\Template\Attribute] Any custom attributes needed for this component.
+ * - href: [string] The value of the link path or URL.
+ * - text: [string] The value of what will be displayed as the link.
+ * - external: [boolean] Either an external or internal link.
+ * - icon_suffix: [string] The ID of an Icon to be displayed at the back.
+ */
+#}
+
+{% set attributes = create_attribute(attributes) %}
+
+{% set classes = [
+  'e-link',
+] %}
+
+<a href="{{ href }}" {{ attributes.addClass(classes) }} {{ external ? 'target="_blank"' }}>
+  <span class="e-link__text">{{ text }}</span>
+</a>

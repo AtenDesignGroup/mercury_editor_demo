@@ -1,0 +1,22 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+name: Link
+status: stable
+group: Elements
+props:
+  type: object
+  required:
+    - href
+    - text
+  properties:
+    attributes:
+      title: Attributes
+      type: string
+    href:
+      title: href
+      type: string
+    text:
+      title: Text
+      type: string
+    external:
+      title: External
+      type: boolean
