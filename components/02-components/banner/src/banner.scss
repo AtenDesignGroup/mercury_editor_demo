@@ -39,7 +39,7 @@
 .c-banner__heading {
   color: var(--me-color-white);
   margin: 0;
-  @include type-scale('heading', 'h2');
+  @include type-scale('heading', 'h1');
 }
 
 //  Text

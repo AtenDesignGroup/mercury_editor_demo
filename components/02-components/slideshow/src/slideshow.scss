@@ -1,0 +1,96 @@
+//
+//  @file
+//  Components - Slideshow
+//
+
+//  Imports
+@use 'partials' as *;
+
+//  Splide core structural CSS
+//  (compiled from node_modules/@splidejs/splide/dist/css/splide-core.min.css)
+@import '../../../node_modules/@splidejs/splide/dist/css/splide-core.min.css';
+
+//  Base
+.c-slideshow {
+  background: linear-gradient(145deg, #e8e8e8 0%, #d0d0d0 100%);
+  border-radius: 12px;
+  block-size: 720px;
+  overflow: hidden;
+  position: relative;
+
+  .splide__track {
+    block-size: 100%;
+  }
+
+  .splide__list {
+    block-size: 100%;
+  }
+}
+
+//  Slide
+.c-slideshow__media {
+  align-items: center;
+  block-size: 100%;
+  display: flex;
+  justify-content: center;
+
+  img,
+  video,
+  iframe {
+    max-block-size: 100%;
+    max-inline-size: 100%;
+    object-fit: contain;
+  }
+}
+
+//  Arrows
+.c-slideshow .splide__arrow {
+  background-color: var(--me-color-mercury);
+  border-radius: 50%;
+  block-size: 48px;
+  inline-size: 48px;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+
+  svg {
+    fill: var(--me-color-white);
+    block-size: 20px;
+    inline-size: 20px;
+  }
+
+  &:hover {
+    background-color: var(--me-color-mercury);
+    opacity: 0.85;
+  }
+}
+
+.c-slideshow .splide__arrow--prev {
+  inset-inline-start: 24px;
+}
+
+.c-slideshow .splide__arrow--next {
+  inset-inline-end: 24px;
+}
+
+//  Pagination
+.c-slideshow .splide__pagination {
+  bottom: 24px;
+  gap: 4px;
+
+  &__page {
+    background-color: rgba(255, 255, 255, 0.5);
+    block-size: 8px;
+    inline-size: 8px;
+    opacity: 1;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+
+    &.is-active {
+      background-color: var(--me-color-mercury);
+      transform: scale(1.4);
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+  }
+}

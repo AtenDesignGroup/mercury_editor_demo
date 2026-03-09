@@ -38,6 +38,7 @@
 
 //  Heading
 .c-featured-card__heading {
+  font-weight: var(--me-fw-bold);
   margin-block: 0;
   @include type-scale('body', 'base');
 

@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a Slideshow Paragraph.
+ *
+ * Available variables:
+ * - No additional variables are available for this template.
+ *
+ * @see template_preprocess_paragraph()
+ * @ingroup themeable
+ */
+#}
+
+{% extends 'paragraph.html.twig' %}
+
+{% set rendered_content = content|without(
+  'field_me_test_slides'
+) %}
+
+{# {% set slides = [] %}
+{% for delta, slide in content.field_me_test_slides if delta matches '/^\\d+$/' %}
+  {% set slides = slides|merge([slide]) %}
+{% endfor %} #}
+
+{% block content %}
+  {{ include('mercury_editor_demo:slideshow', {
+    slides: content.field_me_test_slides|field_value,
+  }, with_context = false) }}
+
+  {{ rendered_content }}
+{% endblock %}
