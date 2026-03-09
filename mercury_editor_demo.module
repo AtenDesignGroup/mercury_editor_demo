@@ -55,10 +55,40 @@ function mercury_editor_demo_theme($existing, $type, $theme, $path) {
           'path' => $template_dir,
         ];
       }
+
+      if (preg_match('/^node--(.+)\.html\.twig$/', $file, $matches)) {
+        $template_name = $matches[1];
+        $theme_hook = 'node__' . str_replace('-', '_', $template_name);
+
+        $themes[$theme_hook] = [
+          'base hook' => 'node',
+          'template' => 'node--' . $template_name,
+          'path' => $template_dir,
+        ];
+      }
     }
   }
 
   return $themes;
+}
+
+/**
+ * Implements hook_preprocess_layout().
+ *
+ * Removes empty regions from Layout Discovery layouts so their wrappers are
+ * not rendered when no content has been placed in them. Only applies during
+ * Mercury Editor preview (edit mode).
+ */
+function mercury_editor_demo_preprocess_layout(&$variables) {
+  if (\Drupal::service('mercury_editor.context')->isPreview()) {
+    return;
+  }
+
+  foreach (array_keys($variables['region_attributes']) as $region) {
+    if (isset($variables['content'][$region]) && empty(\Drupal\Core\Render\Element::children($variables['content'][$region]))) {
+      unset($variables['content'][$region]);
+    }
+  }
 }
 
 /**
@@ -74,6 +104,10 @@ function mercury_editor_demo_preprocess_paragraph(&$variables) {
 
   // Set style option behaviors as a logical template variable.
   if (!empty($behaviorSettings['style_options'])) {
+    if (!isset($variables['style_options'])) {
+      $variables['style_options'] = [];
+    }
+
     foreach ($behaviorSettings['style_options'] as $key => $style) {
       if (!empty($style['property'])) {
         $variables['style_options'][$key] = $style['property'];

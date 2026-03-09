@@ -1,0 +1,24 @@
+{#
+/**
+ * @file
+ * Pages - Full
+ *
+ * Available props:
+ * - attributes: [Drupal\Core\Template\Attribute] Any custom attributes needed for this component.
+ *
+ * Available slots:
+ * - content: The main content of the page.
+ */
+#}
+
+{% set attributes = create_attribute(attributes) %}
+
+{% set classes = [
+  'p-full',
+] %}
+
+<div {{ attributes.addClass(classes) }}>
+  <div class="p-full__content p-full__content--flex-column">
+    {% block content %}{% endblock %}
+  </div>
+</div>

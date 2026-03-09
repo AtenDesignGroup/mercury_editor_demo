@@ -70,12 +70,6 @@
 /* prettier-ignore */
 $typographic-scale: (
   heading: (
-    h1: (
-      mobile: (24, 32),
-      tablet: (32, 40),
-      sm-desktop: (40, 56),
-      desktop: (40, 56),
-    ),
     h2: (
       mobile: (24, 32),
       tablet: (32, 40),
@@ -87,6 +81,18 @@ $typographic-scale: (
       tablet: (24, 32),
       sm-desktop: (30, 36),
       desktop: (30, 36),
+    ),
+    h4: (
+      mobile: (20, 32),
+      tablet: (22, 34),
+      sm-desktop: (24, 36),
+      desktop: (24, 36),
+    ),
+    h5: (
+      mobile: (18, 26),
+      tablet: (20, 28),
+      sm-desktop: (22, 34),
+      desktop: (22, 34),
     ),
   ),
   body: (

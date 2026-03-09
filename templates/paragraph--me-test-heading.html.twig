@@ -14,13 +14,13 @@
 {% extends 'paragraph.html.twig' %}
 
 {% set rendered_content = content|without(
-  'field_me_test_heading'
+  'field_me_test_title'
 ) %}
 
 {% block content %}
   {{ include('mercury_editor_demo:heading', {
-    level: 'div',
-    text: content.field_me_test_heading|field_value,
+    level: 'h2',
+    text: content.field_me_test_title|field_value,
   }, with_context = false) }}
 
   {{ rendered_content }}

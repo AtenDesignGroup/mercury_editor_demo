@@ -23,7 +23,7 @@
 }
 
 //  Heading
-.c-card__heading {
+.c-card__heading.e-heading {
   color: var(--me-color-nebula);
   margin-block: 0;
   @include type-scale('heading', 'h3');

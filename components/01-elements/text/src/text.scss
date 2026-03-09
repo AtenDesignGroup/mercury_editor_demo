@@ -7,7 +7,15 @@
 @use 'partials' as *;
 
 //  Text
-[class*="e-text"] p {
+[class*="e-text"] {
   font-family: var(--me-ff-base);
   @include type-scale('body', 'base');
+
+  p {
+    margin-block: 40px 0;
+  }
+
+  p:first-child {
+    margin-block-start: 0;
+  }
 }

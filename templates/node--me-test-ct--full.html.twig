@@ -1,0 +1,24 @@
+{#
+/**
+ * @file
+ * Olivero's theme implementation to display a ME Test Content node.
+ *
+ * Available variables:
+ * - No additional variables are available for this template. All variables are inherited from node.html.twig.
+ */
+#}
+
+{% extends 'node--me-test.html.twig' %}
+
+{% set rendered_content = content|without('field_me_test_content') %}
+
+{% block content %}
+  {% embed 'mercury_editor_demo:full' with { content } only %}
+    {% block content %}
+      {{ content.field_me_test_content }}
+    {% endblock %}
+  {% endembed %}
+
+  {{ rendered_content }}
+{% endblock %}
+

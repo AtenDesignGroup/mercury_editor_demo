@@ -1,0 +1,120 @@
+//
+//  @file
+//  Pages - Full
+//
+
+//  Imports
+@use 'partials' as *;
+
+//  Base
+.p-full {
+  inline-size: 1140px;
+
+  .layout {
+    display: grid;
+    gap: 40px;
+    margin-block-start: 0 !important;
+    margin-block-end: 0 !important;
+  }
+
+  .layout--twocol {
+    grid-template-areas: 'first second';
+
+    &:has(> .layout__region--top) {
+      grid-template-areas:
+        'top top'
+        'first second';
+    }
+
+    &:has(> .layout__region--bottom) {
+      grid-template-areas:
+        'first second'
+        'bottom bottom';
+    }
+
+    &:has(> .layout__region--top):has(> .layout__region--bottom) {
+      grid-template-areas:
+        'top top'
+        'first second'
+        'bottom bottom';
+    }
+
+    > .layout__region--top {
+      grid-area: top;
+    }
+
+    > .layout__region--first {
+      grid-area: first;
+    }
+
+    > .layout__region--second {
+      grid-area: second;
+    }
+
+    > .layout__region--bottom {
+      grid-area: bottom;
+    }
+  }
+
+  .layout--threecol-33-34-33 {
+    grid-template-areas: 'first second third';
+
+    &:has(> .layout__region--top) {
+      grid-template-areas:
+        'top top top'
+        'first second third';
+    }
+
+    &:has(> .layout__region--bottom) {
+      grid-template-areas:
+        'first second third'
+        'bottom bottom bottom';
+    }
+
+    &:has(> .layout__region--top):has(> .layout__region--bottom) {
+      grid-template-areas:
+        'top top top'
+        'first second third'
+        'bottom bottom bottom';
+    }
+
+    > .layout__region--top {
+      grid-area: top;
+    }
+
+    > .layout__region--first {
+      grid-area: first;
+    }
+
+    > .layout__region--second {
+      grid-area: second;
+    }
+
+    > .layout__region--third {
+      grid-area: third;
+    }
+
+    > .layout__region--bottom {
+      grid-area: bottom;
+    }
+  }
+
+  .layout__region {
+    container: column / inline-size;
+    display: grid;
+    gap: 40px;
+  }
+}
+
+//  Layouts
+.p-full__content--flex-column {
+  display: flex;
+  flex-flow: nowrap column;
+  gap: 40px;
+
+  > .field__items {
+    display: flex;
+    flex-flow: nowrap column;
+    gap: 40px;
+  }
+}

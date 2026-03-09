@@ -8,15 +8,15 @@
 
 //  Base
 :root {
-  --me-button-background-color: var(--me-color-nebula);
-  --me-button-hover-background-color: var(--me-color-neptune);
-  --me-button-color: var(--me-color-white);
+  --me-test-button-background-color: var(--me-color-nebula);
+  --me-test-button-hover-background-color: var(--me-color-neptune);
+  --me-test-button-color: var(--me-color-white);
 }
 
-[class*="e-button"] {
+.e-button {
   appearance: none;
-  background-color: var(--me-button-background-color);
-  color: var(--me-button-color);
+  background-color: var(--me-test-button-background-color);
+  color: var(--me-test-button-color);
   border: none;
   cursor: pointer;
   display: inline-block;
@@ -34,7 +34,8 @@
 
   &:hover,
   &:focus {
-    background-color: var(--me-button-hover-background-color);
+    background-color: var(--me-test-button-hover-background-color);
+    color: var(--me-test-button-color);
   }
 
   &:hover > .e-button__text,
@@ -96,19 +97,19 @@
 
 //  Colors
 .e-button--nebula {
-  --me-button-background-color: var(--me-color-nebula);
-  --me-button-hover-background-color: var(--me-color-neptune);
-  --me-button-color: var(--me-color-white);
+  --me-test-button-background-color: var(--me-color-nebula);
+  --me-test-button-hover-background-color: var(--me-color-neptune);
+  --me-test-button-color: var(--me-color-white);
 }
 
 .e-button--neptune {
-  --me-button-background-color: var(--me-color-neptune);
-  --me-button-hover-background-color: var(--me-color-nebula);
-  --me-button-color: var(--me-color-white);
+  --me-test-button-background-color: var(--me-color-neptune);
+  --me-test-button-hover-background-color: var(--me-color-nebula);
+  --me-test-button-color: var(--me-color-white);
 }
 
 .e-button--nebula-dark {
-  --me-button-background-color: var(--me-color-nebula-dark);
-  --me-button-hover-background-color: var(--me-color-nebula);
-  --me-button-color: var(--me-color-white);
+  --me-test-button-background-color: var(--me-color-nebula-dark);
+  --me-test-button-hover-background-color: var(--me-color-nebula);
+  --me-test-button-color: var(--me-color-white);
 }

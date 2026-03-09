@@ -1,7 +1,11 @@
 $schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
-name: Divider
+name: Full
 status: stable
-group: Components
+group: Pages
 props:
   type: object
   properties: {}
+slots:
+  content:
+    title: Content
+    description: The main content of the page.

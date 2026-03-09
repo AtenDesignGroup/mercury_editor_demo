@@ -1,5 +1,4 @@
 global:
-  version: "1.0"
   css:
     base:
       components/00-base/animations.css: {}
@@ -7,31 +6,16 @@ global:
       components/00-base/sizes.css: {}
       components/00-base/spacing.css: {}
       components/00-base/typography.css: {}
-      components/01-elements/buttons.css: {}
+      components/01-elements/button/button.css: {}
       components/01-elements/icon/icon.css: {}
       components/01-elements/link/link.css: {}
   dependencies:
     - mercury_editor_demo/fonts
 
 fonts:
-  version: "1.0"
   css:
     base:
-      "https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap":
-        { type: external, minified: true }
-      "https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap":
-        { type: external, minified: true }
-
-slideshow:
-  version: "1.0"
-  css:
-    component:
-      components/02-components/slideshow/slideshow.css: {}
-  js:
-    components/02-components/slideshow/slideshow.js: {}
-  dependencies:
-    - core/drupal
-    - core/once
+      '//fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap': { type: external, minified: true }
 
 component_menu:
   css:

@@ -24,7 +24,7 @@
 
 {% block content %}
   {{ include('mercury_editor_demo:slideshow', {
-    slides: content.field_me_test_slides|field_value,
+    slides: content.field_me_test_slides|field_value|default([]),
   }, with_context = false) }}
 
   {{ rendered_content }}

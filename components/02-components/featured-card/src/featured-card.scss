@@ -30,24 +30,37 @@
 
 //  Content
 .c-featured-card__content {
-  background-color: var(--me-color-neptune);
-  color: var(--me-color-white);
-  padding-block: 48px;
-  padding-inline: 48px;
+  padding-block: 24px 0;
+
+  @container (inline-size > 400px) {
+    background-color: var(--me-color-neptune);
+    color: var(--me-color-white);
+    padding-block: 48px;
+    padding-inline: 48px;
+  }
 }
 
 //  Heading
-.c-featured-card__heading {
-  font-weight: var(--me-fw-bold);
+.c-featured-card__heading.e-heading {
+  font-weight: var(--me-fw-semibold);
   margin-block: 0;
-  @include type-scale('body', 'base');
+  @include type-scale('heading', 'h5');
+
+  @container (inline-size > 400px) {
+    font-weight: var(--me-fw-bold);
+    @include type-scale('heading', 'h4');
+  }
 
   a {
-    color: var(--me-color-white);
+    @container (inline-size > 400px) {
+      color: var(--me-color-white);
+    }
   }
 
   a:hover,
   a:focus {
-    color: var(--me-color-white);
+    @container (inline-size > 400px) {
+      color: var(--me-color-white);
+    }
   }
 }
