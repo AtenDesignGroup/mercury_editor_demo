@@ -5,92 +5,95 @@
 
 //  Imports
 @use 'partials' as *;
-
-//  Splide core structural CSS
-//  (compiled from node_modules/@splidejs/splide/dist/css/splide-core.min.css)
-@import '../../../node_modules/@splidejs/splide/dist/css/splide-core.min.css';
+@use '../../../../node_modules/@splidejs/splide/dist/css/splide-core.min.css';
 
 //  Base
 .c-slideshow {
-  background: linear-gradient(145deg, #e8e8e8 0%, #d0d0d0 100%);
-  border-radius: 12px;
-  block-size: 720px;
-  overflow: hidden;
-  position: relative;
 
-  .splide__track {
-    block-size: 100%;
-  }
-
-  .splide__list {
-    block-size: 100%;
-  }
 }
 
-//  Slide
-.c-slideshow__media {
+//  Slides
+.c-slideshow__slide {
   align-items: center;
-  block-size: 100%;
+  background: var(--me-gradient-gray);
+  block-size: 720px;
   display: flex;
   justify-content: center;
 
-  img,
-  video,
-  iframe {
-    max-block-size: 100%;
-    max-inline-size: 100%;
-    object-fit: contain;
+  .media {
+    max-block-size: 660px;
+    max-inline-size: 660px;
+  }
+}
+
+//  Navigation
+.c-slideshow__navigation {
+  inline-size: fit-content;
+  margin-block: 56px 0;
+  margin-inline: auto;
+  position: relative;
+}
+
+//  Pagination
+.c-slideshow__pagination {
+  gap: 20px;
+  
+  button {
+    appearance: none;
+    background: var(--me-color-uranus);
+    block-size: 16px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    inline-size: 16px;
+
+    &.is-active {
+      background: var(--me-color-mercury);
+    }
   }
 }
 
 //  Arrows
-.c-slideshow .splide__arrow {
-  background-color: var(--me-color-mercury);
-  border-radius: 50%;
+.c-slideshow__arrows {
   block-size: 48px;
-  inline-size: 48px;
-  opacity: 1;
-  transition: opacity 0.2s ease;
+  display: flex;
+  inline-size: calc(100% + 176px);
+  inset-block: -16px;
+  inset-inline: -88px;
+  justify-content: space-between;
+  pointer-events: none;
+  position: absolute;
 
-  svg {
-    fill: var(--me-color-white);
-    block-size: 20px;
-    inline-size: 20px;
+  .splide__arrow {
+    align-items: center;
+    appearance: none;
+    background: none;
+    block-size: 48px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    inline-size: 48px;
+    justify-content: center;
+    pointer-events: auto;
+
+    &:after {
+      content: '';
+      background-color: var(--me-color-uranus);
+      display: block;
+      block-size: 40px;
+      inline-size: 40px;
+      mask-image: var(--me-i-arrow-right);
+      mask-size: cover;
+      mask-repeat: no-repeat;
+      mask-position: center;
+    }
   }
 
-  &:hover {
-    background-color: var(--me-color-mercury);
-    opacity: 0.85;
+  .splide__arrow--prev {
+    &:after { transform: rotate(180deg); }
   }
-}
 
-.c-slideshow .splide__arrow--prev {
-  inset-inline-start: 24px;
-}
-
-.c-slideshow .splide__arrow--next {
-  inset-inline-end: 24px;
-}
-
-//  Pagination
-.c-slideshow .splide__pagination {
-  bottom: 24px;
-  gap: 4px;
-
-  &__page {
-    background-color: rgba(255, 255, 255, 0.5);
-    block-size: 8px;
-    inline-size: 8px;
-    opacity: 1;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-
-    &.is-active {
-      background-color: var(--me-color-mercury);
-      transform: scale(1.4);
-    }
-
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.8);
-    }
+  .splide__arrow svg {
+    display: none;
   }
 }

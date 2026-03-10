@@ -10,3 +10,7 @@ props:
       type: array
       slide:
         type: string
+libraryOverrides:
+  dependencies:
+    - core/drupal
+    - core/once

@@ -77,18 +77,24 @@ $typographic-scale: (
       desktop: (40, 48),
     ),
     h3: (
-      mobile: (20, 28),
-      tablet: (24, 32),
+      mobile: (22, 34),
+      tablet: (28, 40),
       sm-desktop: (30, 36),
       desktop: (30, 36),
     ),
     h4: (
+      mobile: (22, 34),
+      tablet: (24, 36),
+      sm-desktop: (28, 40),
+      desktop: (28, 40),
+    ),
+    h5: (
       mobile: (20, 32),
       tablet: (22, 34),
       sm-desktop: (24, 36),
       desktop: (24, 36),
     ),
-    h5: (
+    h6: (
       mobile: (18, 26),
       tablet: (20, 28),
       sm-desktop: (22, 34),

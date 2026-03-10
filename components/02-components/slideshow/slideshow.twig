@@ -17,15 +17,18 @@
 ] %}
 
 <div {{ attributes.addClass(classes) }}>
-  <div class="splide__track">
-    <ul class="splide__list">
+  <div class="c-slideshow__track splide__track">
+    <ul class="c-slideshow__list splide__list">
       {% for slide in slides %}
-        <li class="splide__slide">
-          <div class="c-slideshow__media">
-            {{ slide }}
-          </div>
+        <li class="c-slideshow__slide splide__slide">
+          {{ slide }}
         </li>
       {% endfor %}
     </ul>
+  </div>
+
+  <div class="c-slideshow__navigation">
+    <div class="c-slideshow__arrows splide__arrows"></div>
+    <ul class="c-slideshow__pagination splide__pagination"></ul>
   </div>
 </div>

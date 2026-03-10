@@ -8,6 +8,7 @@
 
 //  Base
 .p-full {
+  container: page / inline-size;
   inline-size: 1140px;
 
   .layout {
