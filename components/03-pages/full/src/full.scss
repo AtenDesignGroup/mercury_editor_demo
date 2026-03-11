@@ -9,7 +9,10 @@
 //  Base
 .p-full {
   container: page / inline-size;
-  inline-size: 1140px;
+
+  @include bp-min(lg-desktop) {
+    inline-size: 1140px;
+  }
 
   .layout {
     display: grid;
@@ -19,84 +22,124 @@
   }
 
   .layout--twocol {
-    grid-template-areas: 'first second';
+    grid-template-columns: minmax(0, 1fr);
+
+    @include bp-min(tablet) {
+      grid-template-columns: none;
+      grid-template-areas: 'first second';
+    }
 
     &:has(> .layout__region--top) {
-      grid-template-areas:
-        'top top'
-        'first second';
+      @include bp-min(tablet) {
+        grid-template-areas:
+          'top top'
+          'first second';
+      }
     }
 
     &:has(> .layout__region--bottom) {
-      grid-template-areas:
-        'first second'
-        'bottom bottom';
+      @include bp-min(tablet) {
+        grid-template-areas:
+          'first second'
+          'bottom bottom';
+      }
     }
 
     &:has(> .layout__region--top):has(> .layout__region--bottom) {
-      grid-template-areas:
-        'top top'
-        'first second'
-        'bottom bottom';
+      @include bp-min(tablet) {
+        grid-template-areas:
+          'top top'
+          'first second'
+          'bottom bottom';
+      }
     }
 
     > .layout__region--top {
-      grid-area: top;
+      @include bp-min(tablet) {
+        grid-area: top;
+      }
     }
 
     > .layout__region--first {
-      grid-area: first;
+      @include bp-min(tablet) {
+        grid-area: first;
+      }
     }
 
     > .layout__region--second {
-      grid-area: second;
+      @include bp-min(tablet) {
+        grid-area: second;
+      }
     }
 
     > .layout__region--bottom {
-      grid-area: bottom;
+      @include bp-min(tablet) {
+        grid-area: bottom;
+      }
     }
   }
 
   .layout--threecol-33-34-33 {
-    grid-template-areas: 'first second third';
+    grid-template-columns: minmax(0, 1fr);
+    
+    @include bp-min(tablet) {
+      grid-template-columns: none;
+      grid-template-areas: 'first second third';
+    }
 
     &:has(> .layout__region--top) {
-      grid-template-areas:
-        'top top top'
-        'first second third';
+      @include bp-min(tablet) {
+        grid-template-areas:
+          'top top top'
+          'first second third';
+      }
     }
 
     &:has(> .layout__region--bottom) {
-      grid-template-areas:
-        'first second third'
-        'bottom bottom bottom';
+      @include bp-min(tablet) {
+        grid-template-areas:
+          'first second third'
+          'bottom bottom bottom';
+      }
     }
 
     &:has(> .layout__region--top):has(> .layout__region--bottom) {
-      grid-template-areas:
-        'top top top'
-        'first second third'
-        'bottom bottom bottom';
+      @include bp-min(tablet) {
+        grid-template-areas:
+          'top top top'
+          'first second third'
+          'bottom bottom bottom';
+      }
     }
 
     > .layout__region--top {
-      grid-area: top;
+      @include bp-min(tablet) {
+        grid-area: top;
+      }
     }
 
     > .layout__region--first {
-      grid-area: first;
+      @include bp-min(tablet) {
+        grid-area: first;
+      }
     }
 
     > .layout__region--second {
-      grid-area: second;
+      @include bp-min(tablet) {
+        grid-area: second;
+      }
     }
 
     > .layout__region--third {
-      grid-area: third;
+      @include bp-min(tablet) {
+        grid-area: third;
+      }
     }
 
     > .layout__region--bottom {
-      grid-area: bottom;
+      @include bp-min(tablet) {
+        grid-area: bottom;
+      }
     }
   }
 

@@ -10,8 +10,13 @@
 .c-cta {
   background-color: var(--me-color-neptune);
   border-radius: 12px;
-  padding-block: 60px;
-  padding-inline: 60px;
+  padding-block: 40px;
+  padding-inline: 40px;
+
+  @include bp-min(tablet) {
+    padding-block: 60px;
+    padding-inline: 60px;
+  }
 }
 
 //  Content

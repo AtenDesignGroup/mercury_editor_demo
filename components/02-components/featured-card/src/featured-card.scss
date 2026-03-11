@@ -9,15 +9,8 @@
 //  Base
 .c-featured-card {
   border-radius: 12px;
-  max-inline-size: 1140px;
+  max-inline-size: 640px;
   overflow: hidden;
-
-  @container (inline-size > 640px) {
-    border-radius: 0;
-    display: flex;
-    flex-flow: nowrap row;
-    overflow: visible;
-  }
 }
 
 //  Media
@@ -29,17 +22,6 @@
   inline-size: 100%;
   justify-content: center;
   position: relative;
-
-  @container (inline-size > 640px) {
-    background: var(--me-color-white);
-    box-shadow: 4px 4px 32px 0 rgba(0, 0, 0, 0.14);
-    aspect-ratio: 316/205;
-    border-radius: 12px;
-    flex-shrink: 0;
-    max-inline-size: 316px;
-    overflow: hidden;
-    z-index: 2;
-  }
 
   img {
     max-block-size: 225px;
@@ -57,15 +39,6 @@
     padding-block: 48px;
     padding-inline: 48px;
   }
-
-  @container (inline-size > 640px) {
-    align-items: center;
-    background-color: var(--me-color-stardust);
-    color: var(--me-color-uranus);
-    display: flex;
-    inline-size: calc(100% + 12px);
-    margin-inline-start: -12px;
-  }
 }
 
 //  Heading
@@ -79,18 +52,9 @@
     @include type-scale('heading', 'h5');
   }
 
-  @container (inline-size > 640px) {
-    font-weight: var(--me-fw-semibold);
-    @include type-scale('heading', 'h4');
-  }
-
   a {
     @container (inline-size > 400px) {
       color: var(--me-color-white);
-    }
-
-    @container (inline-size > 640px) {
-      color: var(--me-color-uranus);
     }
   }
 
@@ -98,10 +62,6 @@
   a:focus {
     @container (inline-size > 400px) {
       color: var(--me-color-white);
-    }
-
-    @container (inline-size > 640px) {
-      color: var(--me-color-uranus);
     }
   }
 }

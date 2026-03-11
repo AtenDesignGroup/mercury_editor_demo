@@ -18,7 +18,6 @@
     },
     "require": {
         "drupal/core": "^10 || ^11",
-        "drupal/mercury_editor": "*",
-        "drupal/heading": "^2.0"
+        "drupal/mercury_editor": "*"
     }
 }

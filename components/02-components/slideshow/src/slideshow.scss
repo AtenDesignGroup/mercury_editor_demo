@@ -14,11 +14,12 @@
 
 //  Slides
 .c-slideshow__slide {
+  aspect-ratio: 19 / 12;
   align-items: center;
   background: var(--me-gradient-gray);
-  block-size: 720px;
   display: flex;
   justify-content: center;
+  max-block-size: 720px;
 
   .media {
     max-block-size: 660px;

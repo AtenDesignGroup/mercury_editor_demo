@@ -139,11 +139,12 @@
 }
 
 .c-slideshow__slide {
+  aspect-ratio: 19/12;
   align-items: center;
   background: var(--me-gradient-gray);
-  height: 720px;
   display: flex;
   justify-content: center;
+  max-height: 720px;
 }
 .c-slideshow__slide .media {
   max-height: 660px;

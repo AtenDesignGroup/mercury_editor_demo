@@ -68,8 +68,13 @@
 //  Styles
 .e-button--primary {
   border-radius: 8px;
-  padding-block: 24px 22px;
-  padding-inline: 40px;
+  padding-block: 16px 14px;
+  padding-inline: 24px;
+
+  @include bp-min(tablet) {
+    padding-block: 24px 22px;
+    padding-inline: 40px;
+  }
 }
 
 //  Icons

@@ -1,0 +1,39 @@
+{#
+/**
+ * @file
+ * Components - Teaser
+ *
+ * Available props:
+ * - attributes: [Drupal\Core\Template\Attribute] Any custom attributes needed for this component.
+ * - media: [string] The value of the media element, such as an image or video.
+ * - heading: [string] The value of the teaser heading.
+ * - href: [string] The value of the link path or URL for the heading
+ */
+#}
+
+{% set attributes = create_attribute(attributes) %}
+
+{% set classes = [
+  'c-teaser',
+] %}
+
+<div {{attributes.addClass(classes)}}>
+  {% if media is not empty %}
+    <div class="c-teaser__media">
+      {{ media }}
+    </div>
+  {% endif %}
+
+  <div class="c-teaser__content">
+    {% if heading is not empty %}
+      {{ include('mercury_editor_demo:heading', {
+        attributes: {
+          class: 'c-teaser__heading',
+        },
+        level: 'h3',
+        href: href|default(''),
+        text: heading,
+      }, with_context = false) }}
+    {% endif %}
+  </div>
+</div>

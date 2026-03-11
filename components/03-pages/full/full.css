@@ -1,6 +1,10 @@
 .p-full {
   container: page/inline-size;
-  width: 1140px;
+}
+@media (min-width: 1440px) {
+  .p-full {
+    width: 1140px;
+  }
 }
 .p-full .layout {
   display: grid;
@@ -10,55 +14,97 @@
   margin-bottom: 0 !important;
 }
 .p-full .layout--twocol {
-  grid-template-areas: "first second";
+  grid-template-columns: minmax(0, 1fr);
 }
-.p-full .layout--twocol:has(> .layout__region--top) {
-  grid-template-areas: "top top" "first second";
+@media (min-width: 768px) {
+  .p-full .layout--twocol {
+    grid-template-columns: none;
+    grid-template-areas: "first second";
+  }
 }
-.p-full .layout--twocol:has(> .layout__region--bottom) {
-  grid-template-areas: "first second" "bottom bottom";
+@media (min-width: 768px) {
+  .p-full .layout--twocol:has(> .layout__region--top) {
+    grid-template-areas: "top top" "first second";
+  }
 }
-.p-full .layout--twocol:has(> .layout__region--top):has(> .layout__region--bottom) {
-  grid-template-areas: "top top" "first second" "bottom bottom";
+@media (min-width: 768px) {
+  .p-full .layout--twocol:has(> .layout__region--bottom) {
+    grid-template-areas: "first second" "bottom bottom";
+  }
 }
-.p-full .layout--twocol > .layout__region--top {
-  grid-area: top;
+@media (min-width: 768px) {
+  .p-full .layout--twocol:has(> .layout__region--top):has(> .layout__region--bottom) {
+    grid-template-areas: "top top" "first second" "bottom bottom";
+  }
 }
-.p-full .layout--twocol > .layout__region--first {
-  grid-area: first;
+@media (min-width: 768px) {
+  .p-full .layout--twocol > .layout__region--top {
+    grid-area: top;
+  }
 }
-.p-full .layout--twocol > .layout__region--second {
-  grid-area: second;
+@media (min-width: 768px) {
+  .p-full .layout--twocol > .layout__region--first {
+    grid-area: first;
+  }
 }
-.p-full .layout--twocol > .layout__region--bottom {
-  grid-area: bottom;
+@media (min-width: 768px) {
+  .p-full .layout--twocol > .layout__region--second {
+    grid-area: second;
+  }
+}
+@media (min-width: 768px) {
+  .p-full .layout--twocol > .layout__region--bottom {
+    grid-area: bottom;
+  }
 }
 .p-full .layout--threecol-33-34-33 {
-  grid-template-areas: "first second third";
+  grid-template-columns: minmax(0, 1fr);
 }
-.p-full .layout--threecol-33-34-33:has(> .layout__region--top) {
-  grid-template-areas: "top top top" "first second third";
+@media (min-width: 768px) {
+  .p-full .layout--threecol-33-34-33 {
+    grid-template-columns: none;
+    grid-template-areas: "first second third";
+  }
 }
-.p-full .layout--threecol-33-34-33:has(> .layout__region--bottom) {
-  grid-template-areas: "first second third" "bottom bottom bottom";
+@media (min-width: 768px) {
+  .p-full .layout--threecol-33-34-33:has(> .layout__region--top) {
+    grid-template-areas: "top top top" "first second third";
+  }
 }
-.p-full .layout--threecol-33-34-33:has(> .layout__region--top):has(> .layout__region--bottom) {
-  grid-template-areas: "top top top" "first second third" "bottom bottom bottom";
+@media (min-width: 768px) {
+  .p-full .layout--threecol-33-34-33:has(> .layout__region--bottom) {
+    grid-template-areas: "first second third" "bottom bottom bottom";
+  }
 }
-.p-full .layout--threecol-33-34-33 > .layout__region--top {
-  grid-area: top;
+@media (min-width: 768px) {
+  .p-full .layout--threecol-33-34-33:has(> .layout__region--top):has(> .layout__region--bottom) {
+    grid-template-areas: "top top top" "first second third" "bottom bottom bottom";
+  }
 }
-.p-full .layout--threecol-33-34-33 > .layout__region--first {
-  grid-area: first;
+@media (min-width: 768px) {
+  .p-full .layout--threecol-33-34-33 > .layout__region--top {
+    grid-area: top;
+  }
 }
-.p-full .layout--threecol-33-34-33 > .layout__region--second {
-  grid-area: second;
+@media (min-width: 768px) {
+  .p-full .layout--threecol-33-34-33 > .layout__region--first {
+    grid-area: first;
+  }
 }
-.p-full .layout--threecol-33-34-33 > .layout__region--third {
-  grid-area: third;
+@media (min-width: 768px) {
+  .p-full .layout--threecol-33-34-33 > .layout__region--second {
+    grid-area: second;
+  }
 }
-.p-full .layout--threecol-33-34-33 > .layout__region--bottom {
-  grid-area: bottom;
+@media (min-width: 768px) {
+  .p-full .layout--threecol-33-34-33 > .layout__region--third {
+    grid-area: third;
+  }
+}
+@media (min-width: 768px) {
+  .p-full .layout--threecol-33-34-33 > .layout__region--bottom {
+    grid-area: bottom;
+  }
 }
 .p-full .layout__region {
   container: column/inline-size;

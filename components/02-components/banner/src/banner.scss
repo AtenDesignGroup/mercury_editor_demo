@@ -12,9 +12,14 @@
   border-radius: 12px;
   color: var(--me-color-white);
   overflow: hidden;
-  padding-block: 80px 120px;
-  padding-inline: 80px 120px;
+  padding-block: 40px 60px;
+  padding-inline: 40px 60px;
   position: relative;
+
+  @include bp-min(tablet) {
+    padding-block: 80px 120px;
+    padding-inline: 80px 120px;
+  }
 
   &:after {
     background: url('img/banner-gradient-hills.svg') no-repeat bottom right;
