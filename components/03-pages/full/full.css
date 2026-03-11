@@ -1,0 +1,79 @@
+.p-full {
+  container: page/inline-size;
+  width: 1140px;
+}
+.p-full .layout {
+  display: grid;
+  grid-gap: 40px;
+  gap: 40px;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+.p-full .layout--twocol {
+  grid-template-areas: "first second";
+}
+.p-full .layout--twocol:has(> .layout__region--top) {
+  grid-template-areas: "top top" "first second";
+}
+.p-full .layout--twocol:has(> .layout__region--bottom) {
+  grid-template-areas: "first second" "bottom bottom";
+}
+.p-full .layout--twocol:has(> .layout__region--top):has(> .layout__region--bottom) {
+  grid-template-areas: "top top" "first second" "bottom bottom";
+}
+.p-full .layout--twocol > .layout__region--top {
+  grid-area: top;
+}
+.p-full .layout--twocol > .layout__region--first {
+  grid-area: first;
+}
+.p-full .layout--twocol > .layout__region--second {
+  grid-area: second;
+}
+.p-full .layout--twocol > .layout__region--bottom {
+  grid-area: bottom;
+}
+.p-full .layout--threecol-33-34-33 {
+  grid-template-areas: "first second third";
+}
+.p-full .layout--threecol-33-34-33:has(> .layout__region--top) {
+  grid-template-areas: "top top top" "first second third";
+}
+.p-full .layout--threecol-33-34-33:has(> .layout__region--bottom) {
+  grid-template-areas: "first second third" "bottom bottom bottom";
+}
+.p-full .layout--threecol-33-34-33:has(> .layout__region--top):has(> .layout__region--bottom) {
+  grid-template-areas: "top top top" "first second third" "bottom bottom bottom";
+}
+.p-full .layout--threecol-33-34-33 > .layout__region--top {
+  grid-area: top;
+}
+.p-full .layout--threecol-33-34-33 > .layout__region--first {
+  grid-area: first;
+}
+.p-full .layout--threecol-33-34-33 > .layout__region--second {
+  grid-area: second;
+}
+.p-full .layout--threecol-33-34-33 > .layout__region--third {
+  grid-area: third;
+}
+.p-full .layout--threecol-33-34-33 > .layout__region--bottom {
+  grid-area: bottom;
+}
+.p-full .layout__region {
+  container: column/inline-size;
+  display: grid;
+  grid-gap: 40px;
+  gap: 40px;
+}
+
+.p-full__content--flex-column {
+  display: flex;
+  flex-flow: nowrap column;
+  gap: 40px;
+}
+.p-full__content--flex-column > .field__items {
+  display: flex;
+  flex-flow: nowrap column;
+  gap: 40px;
+}

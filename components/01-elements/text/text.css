@@ -1,0 +1,12 @@
+[class*=e-text] {
+  font-family: var(--me-ff-base);
+  font-size: var(--me-fs-body-base);
+  line-height: var(--me-lh-body-base);
+}
+[class*=e-text] p {
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+[class*=e-text] p:first-child {
+  margin-top: 0;
+}

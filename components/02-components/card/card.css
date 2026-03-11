@@ -1,0 +1,34 @@
+.c-card {
+  background-color: var(--me-color-stardust);
+  border-radius: 12px;
+  max-width: 640px;
+  padding-top: 48px;
+  padding-bottom: 48px;
+  padding-left: 48px;
+  padding-right: 48px;
+}
+
+.c-card__content {
+  display: flex;
+  flex-flow: nowrap column;
+  gap: 20px;
+}
+
+.c-card__heading.e-heading {
+  color: var(--me-color-nebula);
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: var(--me-fs-heading-h3);
+  line-height: var(--me-lh-heading-h3);
+}
+
+.c-card__text {
+  color: var(--me-color-nebula);
+  font-weight: var(--me-fw-medium);
+  font-size: var(--me-fs-body-base);
+  line-height: var(--me-lh-body-base);
+}
+.c-card__text p {
+  margin-top: 0;
+  margin-bottom: 0;
+}

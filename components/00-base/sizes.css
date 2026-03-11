@@ -1,0 +1,9 @@
+:root {
+  --me-width-xxlarge: 1920px;
+  --me-width-xlarge: 1440px;
+  --me-width-large: 1280px;
+  --me-width-medium: 960px;
+  --me-width-small: 768px;
+  --me-width-xsmall: 640px;
+  --me-width-xxsmall: 480px;
+}

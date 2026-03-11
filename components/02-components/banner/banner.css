@@ -1,0 +1,42 @@
+.c-banner {
+  background-color: var(--me-color-neptune);
+  border-radius: 12px;
+  color: var(--me-color-white);
+  overflow: hidden;
+  padding-top: 80px;
+  padding-bottom: 120px;
+  padding-left: 80px;
+  padding-right: 120px;
+  position: relative;
+}
+.c-banner:after {
+  background: url("img/banner-gradient-hills.svg") no-repeat bottom right;
+  background-size: contain;
+  bottom: 0;
+  right: 0;
+  content: "";
+  height: 260px;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
+.c-banner__content {
+  position: relative;
+  z-index: 2;
+}
+
+.c-banner__heading {
+  color: var(--me-color-white);
+  margin: 0;
+  font-size: var(--me-fs-heading-h2);
+  line-height: var(--me-lh-heading-h2);
+}
+.c-banner__heading.e-heading {
+  color: var(--me-color-white);
+}
+
+.c-banner__text {
+  font-size: var(--me-fs-body-base);
+  line-height: var(--me-lh-body-base);
+}

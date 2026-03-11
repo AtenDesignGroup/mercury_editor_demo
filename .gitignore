@@ -208,7 +208,7 @@ build/webpack-analysis
 # End of https://www.gitignore.io/api/windows,osx,node,sublimetext,phpstorm,linux,sass
 
 # Ignore compiled component CSS and JS (sources live under components/**/src)
-components/**/*.css
-components/**/*.js
-!components/**/src/
+# components/**/*.css
+# components/**/*.js
+# !components/**/src/
 

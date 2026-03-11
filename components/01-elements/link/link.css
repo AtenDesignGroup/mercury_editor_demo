@@ -1,0 +1,34 @@
+a {
+  color: var(--me-color-primary);
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+a:hover, a:focus {
+  color: var(--me-color-secondary);
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.e-link {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+.e-link:hover, .e-link:focus {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+.e-link:hover .e-link__text, .e-link:focus .e-link__text {
+  background-size: 100%;
+}
+
+.e-link__text {
+  background-color: transparent !important;
+  background-image: linear-gradient(180deg, transparent 0, transparent calc(100% - 1px), currentColor calc(100% - 1px), currentColor 100%);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 0;
+  display: inline;
+  position: relative;
+  transition: background-size 0.35s var(--transition-easeInOutQuad);
+  z-index: 10;
+}

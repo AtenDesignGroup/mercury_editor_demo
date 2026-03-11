@@ -1,0 +1,66 @@
+:root {
+  --me-i-controls: url("/modules/custom/mercury_editor_demo/images/svg/controls.svg");
+  --me-i-devices: url("/modules/custom/mercury_editor_demo/images/svg/devices.svg");
+  --me-i-drupal-logo: url("/modules/custom/mercury_editor_demo/images/svg/drupal-logo.svg");
+  --me-i-edit-content: url("/modules/custom/mercury_editor_demo/images/svg/edit-content.svg");
+  --me-i-edit-text: url("/modules/custom/mercury_editor_demo/images/svg/edit-text.svg");
+  --me-i-layout: url("/modules/custom/mercury_editor_demo/images/svg/layout.svg");
+  --me-i-rearrange: url("/modules/custom/mercury_editor_demo/images/svg/rearrange.svg");
+  --me-i-search: url("/modules/custom/mercury_editor_demo/images/svg/search.svg");
+  --me-i-arrow-right: url("/modules/custom/mercury_editor_demo/images/svg/arrow-right.svg");
+}
+
+.e-icon {
+  background-color: var(--me-color-black);
+  height: 32px;
+  display: block;
+  font: 0/0 transparent;
+  width: 32px;
+  -webkit-mask-size: cover;
+          mask-size: cover;
+}
+
+.e-icon--controls {
+  -webkit-mask: var(--me-i-controls) no-repeat center;
+          mask: var(--me-i-controls) no-repeat center;
+}
+
+.e-icon--devices {
+  -webkit-mask: var(--me-i-devices) no-repeat center;
+          mask: var(--me-i-devices) no-repeat center;
+}
+
+.e-icon--drupal-logo {
+  -webkit-mask: var(--me-i-drupal-logo) no-repeat center;
+          mask: var(--me-i-drupal-logo) no-repeat center;
+}
+
+.e-icon--edit-content {
+  -webkit-mask: var(--me-i-edit-content) no-repeat center;
+          mask: var(--me-i-edit-content) no-repeat center;
+}
+
+.e-icon--edit-text {
+  -webkit-mask: var(--me-i-edit-text) no-repeat center;
+          mask: var(--me-i-edit-text) no-repeat center;
+}
+
+.e-icon--layout {
+  -webkit-mask: var(--me-i-layout) no-repeat center;
+          mask: var(--me-i-layout) no-repeat center;
+}
+
+.e-icon--rearrange {
+  -webkit-mask: var(--me-i-rearrange) no-repeat center;
+          mask: var(--me-i-rearrange) no-repeat center;
+}
+
+.e-icon--search {
+  -webkit-mask: var(--me-i-search) no-repeat center;
+          mask: var(--me-i-search) no-repeat center;
+}
+
+.e-icon--arrow-right {
+  -webkit-mask: var(--me-i-arrow-right) no-repeat center;
+          mask: var(--me-i-arrow-right) no-repeat center;
+}

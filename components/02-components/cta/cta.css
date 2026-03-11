@@ -1,0 +1,29 @@
+.c-cta {
+  background-color: var(--me-color-neptune);
+  border-radius: 12px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+.c-cta__content {
+  display: flex;
+  flex-flow: nowrap column;
+  gap: 32px;
+}
+
+.c-cta__heading {
+  color: var(--me-color-white);
+  font-weight: var(--me-fw-bold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: var(--me-fs-label-base);
+  line-height: var(--me-lh-label-base);
+}
+
+.c-cta__buttons {
+  display: flex;
+  flex-flow: wrap row;
+  gap: 16px;
+}

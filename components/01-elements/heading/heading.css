@@ -1,0 +1,8 @@
+.e-heading {
+  color: var(--me-color-nebula);
+  font-family: var(--me-ff-base);
+  font-weight: var(--me-fw-bold);
+  margin: 0;
+  font-size: var(--me-fs-heading-h2);
+  line-height: var(--me-lh-heading-h2);
+}

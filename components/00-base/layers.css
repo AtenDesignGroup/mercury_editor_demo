@@ -1,0 +1,8 @@
+:root {
+  --me-zindex-super: 100;
+  --me-zindex-top: 90;
+  --me-zindex-over: 10;
+  --me-zindex-default: 1;
+  --me-zindex-under: -1;
+  --me-zindex-bottom: -9999px;
+}
