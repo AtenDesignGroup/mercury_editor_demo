@@ -14,7 +14,7 @@
 {% extends 'paragraph.html.twig' %}
 
 {% set rendered_content = content|without(
-  'field_me_test_title',
+  'field_me_test_heading',
   'field_me_test_media',
   'field_me_test_link',
 ) %}
@@ -24,7 +24,7 @@
 {% block content %}
   {{ include('mercury_editor_demo:featured-card', {
     media: content.field_me_test_media|field_value,
-    heading: content.field_me_test_title|field_value,
+    heading: content.field_me_test_heading|field_value|default(''),
     href: featured_card_link,
   }, with_context = false) }}
 

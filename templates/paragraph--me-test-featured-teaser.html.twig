@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Default theme implementation to display a Card Paragraph.
+ * Default theme implementation to display a Teaser Paragraph.
  *
  * Available variables:
  * - No additional variables are available for this template.
@@ -15,21 +15,17 @@
 
 {% set rendered_content = content|without(
   'field_me_test_heading',
-  'field_me_test_text',
+  'field_me_test_media',
   'field_me_test_link',
 ) %}
 
-{% set card_link_url = content.field_me_test_link[0]['#url'].toString() ?? '' %}
-{% set card_link_text = content.field_me_test_link[0]['#title'] ?? '' %}
+{% set featured_card_link = content.field_me_test_link|field_value[0]['#url'] ?? null %}
 
 {% block content %}
-  {{ include('mercury_editor_demo:card', {
+  {{ include('mercury_editor_demo:featured-teaser', {
+    media: content.field_me_test_media|field_value|default(''),
     heading: content.field_me_test_heading|field_value|default(''),
-    text: content.field_me_test_text|field_value,
-    link: {
-      href: card_link_url,
-      text: card_link_text,
-    },
+    href: featured_card_link,
   }, with_context = false) }}
 
   {{ rendered_content }}

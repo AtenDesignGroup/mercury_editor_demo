@@ -19,13 +19,15 @@
 }
 
 .c-featured-card__content {
+  background-color: var(--me-color-neptune);
+  color: var(--me-color-white);
   padding-top: 24px;
-  padding-bottom: 0;
+  padding-bottom: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 @container (inline-size > 400px) {
   .c-featured-card__content {
-    background-color: var(--me-color-neptune);
-    color: var(--me-color-white);
     padding-top: 48px;
     padding-bottom: 48px;
     padding-left: 48px;
@@ -34,27 +36,16 @@
 }
 
 .c-featured-card__heading.e-heading {
-  font-weight: var(--me-fw-semibold);
+  font-weight: var(--me-fw-bold);
   margin-top: 0;
   margin-bottom: 0;
-  font-size: var(--me-fs-heading-h6);
-  line-height: var(--me-lh-heading-h6);
+  font-size: var(--me-fs-heading-h5);
+  line-height: var(--me-lh-heading-h5);
 }
-@container (inline-size > 400px) {
-  .c-featured-card__heading.e-heading {
-    font-weight: var(--me-fw-bold);
-    font-size: var(--me-fs-heading-h5);
-    line-height: var(--me-lh-heading-h5);
-  }
+.c-featured-card__heading.e-heading a {
+  color: var(--me-color-white);
 }
-@container (inline-size > 400px) {
-  .c-featured-card__heading.e-heading a {
-    color: var(--me-color-white);
-  }
-}
-@container (inline-size > 400px) {
-  .c-featured-card__heading.e-heading a:hover,
-  .c-featured-card__heading.e-heading a:focus {
-    color: var(--me-color-white);
-  }
+.c-featured-card__heading.e-heading a:hover,
+.c-featured-card__heading.e-heading a:focus {
+  color: var(--me-color-white);
 }

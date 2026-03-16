@@ -31,11 +31,12 @@
 
 //  Content
 .c-featured-card__content {
-  padding-block: 24px 0;
+  background-color: var(--me-color-neptune);
+  color: var(--me-color-white);
+  padding-block: 24px;
+  padding-inline: 24px;
 
   @container (inline-size > 400px) {
-    background-color: var(--me-color-neptune);
-    color: var(--me-color-white);
     padding-block: 48px;
     padding-inline: 48px;
   }
@@ -43,25 +44,16 @@
 
 //  Heading
 .c-featured-card__heading.e-heading {
-  font-weight: var(--me-fw-semibold);
+  font-weight: var(--me-fw-bold);
   margin-block: 0;
-  @include type-scale('heading', 'h6');
-
-  @container (inline-size > 400px) {
-    font-weight: var(--me-fw-bold);
-    @include type-scale('heading', 'h5');
-  }
+  @include type-scale('heading', 'h5');
 
   a {
-    @container (inline-size > 400px) {
-      color: var(--me-color-white);
-    }
+    color: var(--me-color-white);
   }
 
   a:hover,
   a:focus {
-    @container (inline-size > 400px) {
-      color: var(--me-color-white);
-    }
+    color: var(--me-color-white);
   }
 }

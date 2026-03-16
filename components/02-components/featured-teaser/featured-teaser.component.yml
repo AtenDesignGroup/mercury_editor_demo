@@ -1,0 +1,16 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+name: Teaser
+status: stable
+group: Components
+props:
+  type: object
+  properties:
+    media:
+      title: Media
+      type: string
+    heading:
+      title: Heading
+      type: string
+    href:
+      title: Link
+      type: string

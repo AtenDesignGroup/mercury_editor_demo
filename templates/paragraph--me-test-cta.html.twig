@@ -14,7 +14,7 @@
 {% extends 'paragraph.html.twig' %}
 
 {% set rendered_content = content|without(
-  'field_me_test_title',
+  'field_me_test_heading',
   'field_me_test_links',
 ) %}
 
@@ -28,7 +28,7 @@
 
 {% block content %}
   {{ include('mercury_editor_demo:cta', {
-    heading: content.field_me_test_title|field_value,
+    heading: content.field_me_test_heading|field_value|default(''),
     buttons: buttons,
   }, with_context = false) }}
 

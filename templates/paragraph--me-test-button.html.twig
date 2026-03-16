@@ -14,12 +14,12 @@
 {% extends 'paragraph.html.twig' %}
 
 {% set rendered_content = content|without(
-  'field_me_test_button_link',
+  'field_me_test_link',
 ) %}
 
-{% set button_href = content.field_me_test_button_link.0['#url'] ?? '' %}
-{% set button_text = content.field_me_test_button_link.0['#title'] ?? '' %}
-{% set button_external = content.field_me_test_button_link.0['#options']['external'] ?? false %}
+{% set button_href = content.field_me_test_link.0['#url'] ?? '' %}
+{% set button_text = content.field_me_test_link.0['#title'] ?? '' %}
+{% set button_external = content.field_me_test_link.0['#options']['external'] ?? false %}
 {% set button_color = style_options['button_color'] ?? '' %}
 
 {% block content %}
