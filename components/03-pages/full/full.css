@@ -124,6 +124,10 @@
   gap: 40px;
 }
 
+.p-full .js-lpb-component-list .js-lpb-component {
+  margin-left: 0;
+  margin-right: 0;
+}
 .p-full .js-lpb-component-list > .js-lpb-component {
   margin-top: 40px;
 }

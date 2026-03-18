@@ -165,6 +165,10 @@
 
 //  Mercury Editor Overrides
 .p-full .js-lpb-component-list {
+  .js-lpb-component {
+    margin-inline: 0;
+  }
+
   > .js-lpb-component {
     margin-block-start: 40px;
   }
