@@ -1,5 +1,5 @@
 {
-    "name": "drupal/mercury_editor_demo",
+    "name": "atendesigngroup/mercury_editor_demo",
     "type": "drupal-module",
     "description": "Demo module for Mercury Editor setup and configuration.",
     "keywords": [
@@ -7,17 +7,35 @@
         "Mercury Editor",
         "Demo",
         "Paragraphs",
-        "Layout"
+        "Layout",
+        "Components"
     ],
-    "license": "GPL-2.0+",
+    "license": "GPL-2.0-or-later",
     "minimum-stability": "dev",
-    "homepage": "https://drupal.org/project/mercury_editor",
+    "homepage": "https://github.com/AtenDesignGroup/mercury_editor_demo",
+    "authors": [
+        {
+            "name": "Aten Design Group",
+            "homepage": "https://atendesigngroup.com"
+        }
+    ],
     "support": {
-        "issues": "https://www.drupal.org/project/issues/mercury_editor",
-        "source": "https://git.drupalcode.org/project/mercury_editor"
+        "issues": "https://github.com/AtenDesignGroup/mercury_editor_demo/issues",
+        "source": "https://github.com/AtenDesignGroup/mercury_editor_demo"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/AtenDesignGroup/mercury_editor_demo"
+        }
+    ],
     "require": {
         "drupal/core": "^10 || ^11",
         "drupal/mercury_editor": "*"
+    },
+    "extra": {
+        "drupal": {
+            "version": "1.0.0-dev"
+        }
     }
 }
