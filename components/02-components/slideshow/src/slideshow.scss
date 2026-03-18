@@ -22,12 +22,22 @@
   max-block-size: 720px;
 
   .media {
-    max-block-size: 300px;
+    inline-size: 100%;
+    max-block-size: 200px;
     max-inline-size: 300px;
 
-    @include bp-min('desktop') {
-      max-block-size: 660px;
+    @include bp-min(tablet) {
+      max-block-size: 300px;
       max-inline-size: 660px;
+    }
+  }
+
+  img {
+    inline-size: 100%;
+    max-block-size: 200px;
+
+    @include bp-min(tablet) {
+      max-block-size: 300px;
     }
   }
 }

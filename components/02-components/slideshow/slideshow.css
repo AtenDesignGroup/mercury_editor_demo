@@ -147,13 +147,23 @@
   max-height: 720px;
 }
 .c-slideshow__slide .media {
-  max-height: 300px;
+  width: 100%;
+  max-height: 200px;
   max-width: 300px;
 }
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
   .c-slideshow__slide .media {
-    max-height: 660px;
+    max-height: 300px;
     max-width: 660px;
+  }
+}
+.c-slideshow__slide img {
+  width: 100%;
+  max-height: 200px;
+}
+@media (min-width: 768px) {
+  .c-slideshow__slide img {
+    max-height: 300px;
   }
 }
 

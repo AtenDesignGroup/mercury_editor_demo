@@ -15,8 +15,14 @@
   position: relative;
 }
 .c-teaser__media img {
-  max-height: 225px;
-  max-width: 225px;
+  max-height: 100px;
+  max-width: 100px;
+}
+@container (inline-size > 300px) {
+  .c-teaser__media img {
+    max-height: 225px;
+    max-width: 225px;
+  }
 }
 
 .c-teaser__content {
