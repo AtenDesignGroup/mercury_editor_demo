@@ -23,7 +23,7 @@
 
 {% block content %}
   {{ include('mercury_editor_demo:featured-card', {
-    media: content.field_me_test_media|field_value,
+    media: content.field_me_test_media|field_value|default(''),
     heading: content.field_me_test_heading|field_value|default(''),
     href: featured_card_link,
   }, with_context = false) }}
