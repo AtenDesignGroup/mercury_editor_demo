@@ -4,17 +4,34 @@
 //
 
 //  Base
+:root {
+  --me-test-divider-size: 60px;
+  --me-test-divider-style: solid;
+}
+
 .e-divider {
   align-items: center;
-  block-size: 60px;
+  block-size: var(--me-test-divider-size);
   display: flex;
 
   hr {
-    background-color: var(--me-color-gray-400);
+    background: none;
     block-size: 1px;
-    border: none;
+    border-color: var(--me-color-gray-400);
+    border-style: var(--me-test-divider-style);
+    border-width: 1px;
     display: block;
     inline-size: 100%;
     margin: 0;
   }
 }
+
+//  Size
+.e-divider--small   { --me-test-divider-size: 30px; }
+.e-divider--medium  { --me-test-divider-size: 60px; }
+.e-divider--large   { --me-test-divider-size: 90px; }
+
+//  Style
+.e-divider--solid  { --me-test-divider-style: solid; }
+.e-divider--dashed { --me-test-divider-style: dashed; }
+.e-divider--dotted { --me-test-divider-style: dotted; }

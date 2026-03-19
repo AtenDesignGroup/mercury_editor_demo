@@ -5,6 +5,8 @@
  *
  * Available props:
  * - attributes: [Drupal\Core\Template\Attribute] Any custom attributes needed for this component.
+ * - size: [string] The size of the divider. Options: small, medium, large.
+ * - style: [string] The style of the divider. Options: solid, dashed, dotted.
  */
 #}
 
@@ -12,6 +14,8 @@
 
 {% set classes = [
   'e-divider',
+  size ? 'e-divider--' ~ size,
+  style ? 'e-divider--' ~ style,
 ] %}
 
 <div {{ attributes.addClass(classes) }}>
