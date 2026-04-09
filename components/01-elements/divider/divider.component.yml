@@ -4,4 +4,14 @@ status: stable
 group: Components
 props:
   type: object
-  properties: {}
+  properties:
+    size:
+      title: Size
+      type: string
+      enum: [small, medium, large]
+      description: The size of the divider.
+    style:
+      title: Style
+      type: string
+      enum: [solid, dashed, dotted]
+      description: The style of the divider.

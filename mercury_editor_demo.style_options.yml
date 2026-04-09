@@ -11,32 +11,62 @@ options:
         label: Neptune
   card_style:
     plugin: css_class
-    label: Card Style
-    description: Choose a style for the card component.
-    multiple: false
+    label: Style
+    default: card
+    description: Choose a visual style for this component.
     options:
-      - label: Primary
-        class: card-primary
-      - label: Secondary
-        class: card-secondary
-      - label: Teaser
-        class: card-teaser
-  button_style:
-    plugin: css_class
-    label: Button Style
-    description: Choose a style for the card's button link.
-    multiple: false
+      banner:
+        label: Banner
+        class: card-style--banner
+      card:
+        label: Card
+        class: card-style--card
+      cta:
+        label: CTA
+        class: card-style--cta
+      featured_card:
+        label: Featured Card
+        class: card-style--featured-card
+      featured_teaser:
+        label: Featured Teaser
+        class: card-style--featured-teaser
+      teaser:
+        label: Teaser
+        class: card-style--teaser
+  divider_size:
+    plugin: property
+    label: Divider Size
+    default: medium
+    description: Choose a size for the divider.
     options:
-      - label: Neptune
-        class: button-neptune
-      - label: Nebula
-        class: button-nebula
+      small:
+        label: Small
+      medium:
+        label: Medium
+      large:
+        label: Large
+  divider_style:
+    plugin: property
+    label: Divider Style
+    default: solid
+    description: Choose a style for the divider.
+    options:
+      solid:
+        label: Solid
+      dashed:
+        label: Dashed
+      dotted:
+        label: Dotted
 
 contexts:
   paragraphs:
-    me_test_featured_card:
-      options:
-        card_style: true
     me_test_button:
       options:
         button_color: true
+    me_test_card:
+      options:
+        card_style: true
+    me_test_divider:
+      options:
+        divider_size: true
+        divider_style: true

@@ -25,8 +25,13 @@
   position: relative;
 
   img {
-    max-block-size: 225px;
+    max-block-size: 100px;
+    max-inline-size: 100px;
+
+    @container (inline-size > 300px) {
+      max-block-size: 225px;
     max-inline-size: 225px;
+    }
   }
 }
 

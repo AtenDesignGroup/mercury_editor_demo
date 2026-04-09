@@ -1,10 +1,16 @@
 {#
 /**
  * @file
- * Default theme implementation to display a Card Paragraph.
+ * Default theme implementation to display a Card / Banner Paragraph.
  *
- * Available variables:
- * - No additional variables are available for this template.
+ * Visual style is controlled by the "Style" style option (card_style),
+ * which maps to one of the following SDCs:
+ *   - banner      (mercury_editor_demo:banner)
+ *   - card        (mercury_editor_demo:card)       [default]
+ *   - cta         (mercury_editor_demo:cta)
+ *   - featured-card   (mercury_editor_demo:featured-card)
+ *   - featured-teaser (mercury_editor_demo:featured-teaser)
+ *   - teaser      (mercury_editor_demo:teaser)
  *
  * @see template_preprocess_paragraph()
  * @ingroup themeable
@@ -17,20 +23,80 @@
   'field_me_test_heading',
   'field_me_test_text',
   'field_me_test_link',
+  'field_me_test_links',
+  'field_me_test_media',
 ) %}
 
-{% set card_link_url = content.field_me_test_link[0]['#url'].toString() ?? '' %}
-{% set card_link_text = content.field_me_test_link[0]['#title'] ?? '' %}
+{# Determine which style is active from the css_class style option. #}
+{% set card_style = 'card' %}
+{% if attributes.hasClass('card-style--banner') %}
+  {% set card_style = 'banner' %}
+{% elseif attributes.hasClass('card-style--cta') %}
+  {% set card_style = 'cta' %}
+{% elseif attributes.hasClass('card-style--featured-card') %}
+  {% set card_style = 'featured-card' %}
+{% elseif attributes.hasClass('card-style--featured-teaser') %}
+  {% set card_style = 'featured-teaser' %}
+{% elseif attributes.hasClass('card-style--teaser') %}
+  {% set card_style = 'teaser' %}
+{% endif %}
+
+{# Shared variable derivations. #}
+{% set link_url = content.field_me_test_link[0]['#url'] is defined ? content.field_me_test_link[0]['#url'].toString() : '' %}
+{% set link_text = content.field_me_test_link[0]['#title'] ?? '' %}
 
 {% block content %}
-  {{ include('mercury_editor_demo:card', {
-    heading: content.field_me_test_heading|field_value|default(''),
-    text: content.field_me_test_text|field_value,
-    link: {
-      href: card_link_url,
-      text: card_link_text,
-    },
-  }, with_context = false) }}
+  {% if card_style == 'banner' %}
+    {{ include('mercury_editor_demo:banner', {
+      heading: content.field_me_test_heading|field_value|default(''),
+      text: content.field_me_test_text|field_value|default(''),
+    }, with_context = false) }}
+
+  {% elseif card_style == 'cta' %}
+    {% set buttons = [] %}
+    {% for link in content.field_me_test_links|field_value %}
+      {% set buttons = buttons|merge([{
+        href: link['#url'] is defined ? link['#url'].toString() : (link[0]['#url'] is defined ? link[0]['#url'].toString() : null),
+        text: link['#title'] is defined ? link['#title'] : (link[0]['#title'] is defined ? link[0]['#title'] : ''),
+      }]) %}
+    {% endfor %}
+    {{ include('mercury_editor_demo:cta', {
+      heading: content.field_me_test_heading|field_value|default(''),
+      buttons: buttons,
+    }, with_context = false) }}
+
+  {% elseif card_style == 'featured-card' %}
+    {{ include('mercury_editor_demo:featured-card', {
+      media: content.field_me_test_media|field_value|default(''),
+      heading: content.field_me_test_heading|field_value|default(''),
+      href: link_url,
+    }, with_context = false) }}
+
+  {% elseif card_style == 'featured-teaser' %}
+    {{ include('mercury_editor_demo:featured-teaser', {
+      media: content.field_me_test_media|field_value|default(''),
+      heading: content.field_me_test_heading|field_value|default(''),
+      href: link_url,
+    }, with_context = false) }}
+
+  {% elseif card_style == 'teaser' %}
+    {{ include('mercury_editor_demo:teaser', {
+      media: content.field_me_test_media|field_value|default(''),
+      heading: content.field_me_test_heading|field_value|default(''),
+      href: link_url,
+    }, with_context = false) }}
+
+  {% else %}
+    {# Default: card style #}
+    {{ include('mercury_editor_demo:card', {
+      heading: content.field_me_test_heading|field_value|default(''),
+      text: content.field_me_test_text|field_value|default(''),
+      link: {
+        href: link_url,
+        text: link_text,
+      },
+    }, with_context = false) }}
+  {% endif %}
 
   {{ rendered_content }}
 {% endblock %}

@@ -16,43 +16,43 @@
 .p-full .layout--twocol {
   grid-template-columns: minmax(0, 1fr);
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .p-full .layout--twocol {
     grid-template-columns: none;
     grid-template-areas: "first second";
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .p-full .layout--twocol:has(> .layout__region--top) {
     grid-template-areas: "top top" "first second";
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .p-full .layout--twocol:has(> .layout__region--bottom) {
     grid-template-areas: "first second" "bottom bottom";
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .p-full .layout--twocol:has(> .layout__region--top):has(> .layout__region--bottom) {
     grid-template-areas: "top top" "first second" "bottom bottom";
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .p-full .layout--twocol > .layout__region--top {
     grid-area: top;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .p-full .layout--twocol > .layout__region--first {
     grid-area: first;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .p-full .layout--twocol > .layout__region--second {
     grid-area: second;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .p-full .layout--twocol > .layout__region--bottom {
     grid-area: bottom;
   }
@@ -122,4 +122,15 @@
   display: flex;
   flex-flow: nowrap column;
   gap: 40px;
+}
+
+.p-full .js-lpb-component-list .js-lpb-component {
+  margin-left: 0;
+  margin-right: 0;
+}
+.p-full .js-lpb-component-list > .js-lpb-component {
+  margin-top: 40px;
+}
+.p-full .js-lpb-component-list > .js-lpb-component:first-child {
+  margin-top: 0;
 }

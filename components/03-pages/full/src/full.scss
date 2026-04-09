@@ -24,13 +24,13 @@
   .layout--twocol {
     grid-template-columns: minmax(0, 1fr);
 
-    @include bp-min(tablet) {
+    @include bp-min(lg-tablet) {
       grid-template-columns: none;
       grid-template-areas: 'first second';
     }
 
     &:has(> .layout__region--top) {
-      @include bp-min(tablet) {
+      @include bp-min(lg-tablet) {
         grid-template-areas:
           'top top'
           'first second';
@@ -38,7 +38,7 @@
     }
 
     &:has(> .layout__region--bottom) {
-      @include bp-min(tablet) {
+      @include bp-min(lg-tablet) {
         grid-template-areas:
           'first second'
           'bottom bottom';
@@ -46,7 +46,7 @@
     }
 
     &:has(> .layout__region--top):has(> .layout__region--bottom) {
-      @include bp-min(tablet) {
+      @include bp-min(lg-tablet) {
         grid-template-areas:
           'top top'
           'first second'
@@ -55,25 +55,25 @@
     }
 
     > .layout__region--top {
-      @include bp-min(tablet) {
+      @include bp-min(lg-tablet) {
         grid-area: top;
       }
     }
 
     > .layout__region--first {
-      @include bp-min(tablet) {
+      @include bp-min(lg-tablet) {
         grid-area: first;
       }
     }
 
     > .layout__region--second {
-      @include bp-min(tablet) {
+      @include bp-min(lg-tablet) {
         grid-area: second;
       }
     }
 
     > .layout__region--bottom {
-      @include bp-min(tablet) {
+      @include bp-min(lg-tablet) {
         grid-area: bottom;
       }
     }
@@ -160,5 +160,20 @@
     display: flex;
     flex-flow: nowrap column;
     gap: 40px;
+  }
+}
+
+//  Mercury Editor Overrides
+.p-full .js-lpb-component-list {
+  .js-lpb-component {
+    margin-inline: 0;
+  }
+
+  > .js-lpb-component {
+    margin-block-start: 40px;
+  }
+
+  > .js-lpb-component:first-child {
+    margin-block-start: 0;
   }
 }

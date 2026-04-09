@@ -3,7 +3,7 @@
   flex-flow: column nowrap;
   max-width: 1140px;
 }
-@container (inline-size > 640px) {
+@media (min-width: 768px) {
   .c-featured-teaser {
     flex-flow: nowrap row;
   }

@@ -12,7 +12,7 @@
   flex-flow: column nowrap;
   max-inline-size: 1140px;
 
-  @container (inline-size > 640px) {
+  @include bp-min(tablet) {
     flex-flow: nowrap row;
   }
 }

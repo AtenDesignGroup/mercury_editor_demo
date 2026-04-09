@@ -16,6 +16,9 @@
 {% set rendered_content = content|without() %}
 
 {% block content %}
-  {{ include('mercury_editor_demo:divider', {}, with_context = false) }}
+  {{ include('mercury_editor_demo:divider', {
+    size: style_options['divider_size']|default('medium'),
+    style: style_options['divider_style']|default('solid'),
+  }, with_context = false) }}
   {{ rendered_content }}
 {% endblock %}
