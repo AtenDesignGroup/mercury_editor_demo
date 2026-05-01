@@ -32,21 +32,23 @@ Additional modules are installed via the `mercury_editor_demo_recipe`. These are
 
 ## Installation
 
-### Option A: Module only
+### Option A: Full demo setup via Recipe (recommended)
 
-As `mercury_editor_demo` ships as a submodule of `drupal/mercury_editor`, no separate Composer require is needed. Enable the submodule directly:
+Install the [Mercury Editor Demo Recipe](https://www.drupal.org/project/mercury_editor_demo_recipe). The recipe requires this module and handles all configuration automatically:
 
 ```bash
-drush en mercury_editor_demo -y
+composer require drupal/mercury_editor_demo_recipe
+drush recipe recipes/contrib/mercury_editor_demo_recipe
 drush cr
 ```
 
-### Option B: Full demo setup via Recipe (recommended)
+### Option B: Module only
 
-Apply the `mercury_editor_demo_recipe` to install all required modules, import configuration, and load default content in one step:
+To install just this module without the recipe:
 
 ```bash
-drush recipe recipes/mercury_editor_demo_recipe
+composer require drupal/mercury_editor_demo
+drush en mercury_editor_demo -y
 drush cr
 ```
 
@@ -82,12 +84,14 @@ npm run build
 npm run clean
 ```
 
-## Working with the Recipe
+## Contributing
 
-### Applying the Recipe
+### Working with the Recipe
+
+For local development, apply the recipe from the contrib recipes directory:
 
 ```bash
-drush recipe recipes/mercury_editor_demo_recipe
+drush recipe recipes/contrib/mercury_editor_demo_recipe
 ```
 
 ### Exporting Default Content

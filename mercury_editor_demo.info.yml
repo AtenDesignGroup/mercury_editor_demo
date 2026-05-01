@@ -1,5 +1,5 @@
 name: Mercury Editor Demo
-description: "Demo module for Mercury Editor setup and configuration."
+description: "Demo module for Mercury Editor. Install via the Mercury Editor Demo Recipe for a complete setup."
 package: "Mercury Editor"
 type: module
 core_version_requirement: ^10 || ^11
