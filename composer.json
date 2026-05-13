@@ -23,8 +23,13 @@
         "issues": "https://www.drupal.org/project/issues/mercury_editor_demo",
         "source": "https://www.drupal.org/project/mercury_editor_demo"
     },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    ],
     "require": {
-        "drupal/core": "^10.3 || ^11",
         "drupal/mercury_editor": "^2 || ^3"
     }
 }
